@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="720" viewBox="0 0 1440 720">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#111"/><stop offset="1" stop-color="#2a1f16"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-opacity=".25"/></filter></defs>
+<rect width="1440" height="720" fill="#f5f1e9"/><rect x="0" y="0" width="1440" height="170" fill="url(#g)"/>
+<text x="92" y="76" fill="#e3c17d" font-size="18" font-family="Noto Sans CJK TC" letter-spacing="5">DOUSHU SCHOOL</text>
+<text x="92" y="128" fill="#fff" font-size="42" font-family="Noto Serif CJK TC" font-weight="700">小梁專用｜紫微斗數排盤</text>
+<text x="92" y="202" fill="#333" font-size="22" font-family="Noto Sans CJK TC">講課版 · RWD · 占驗派 · 小限 · 太歲 · 流祿羊陀</text>
+<g filter="url(#s)" transform="translate(92 250)">
+ <rect width="940" height="390" rx="14" fill="#fff" stroke="#cfc8bc"/>
+ <g stroke="#bcb4a9" fill="#fff">
+  <rect x="18" y="18" width="220" height="84"/><rect x="239" y="18" width="220" height="84"/><rect x="460" y="18" width="220" height="84"/><rect x="681" y="18" width="240" height="84"/>
+  <rect x="18" y="103" width="220" height="84"/><rect x="681" y="103" width="240" height="84"/>
+  <rect x="18" y="188" width="220" height="84"/><rect x="681" y="188" width="240" height="84"/>
+  <rect x="18" y="273" width="220" height="98"/><rect x="239" y="273" width="220" height="98"/><rect x="460" y="273" width="220" height="98"/><rect x="681" y="273" width="240" height="98"/>
+ </g>
+ <rect x="239" y="103" width="441" height="169" fill="#f3ecdf" stroke="#bcb4a9"/>
+ <text x="460" y="154" text-anchor="middle" font-size="24" font-family="Noto Serif CJK TC">紫微斗數</text>
+ <text x="460" y="190" text-anchor="middle" font-size="16" font-family="Noto Sans CJK TC">本命 · 大限 · 小限 · 流年</text>
+ <g font-family="Noto Sans CJK TC" font-size="13" fill="#333">
+  <text x="36" y="44">命宮　紫微 天府</text><text x="36" y="66">祿　權　白虎</text>
+  <text x="257" y="44">兄弟　天機</text><text x="478" y="44">夫妻　廉貞 天相</text><text x="699" y="44">子女　太陰</text>
+  <text x="36" y="129">財帛　武曲</text><text x="699" y="129">疾厄　天梁</text>
+  <text x="36" y="214">遷移　破軍</text><text x="699" y="214">交友　貪狼</text>
+  <text x="36" y="299">官祿　七殺</text><text x="257" y="299">田宅　巨門</text><text x="478" y="299">福德　天同</text><text x="699" y="299">父母　太陽</text>
+ </g>
+ <circle cx="104" cy="86" r="10" fill="#2f9e5b"/><circle cx="132" cy="86" r="10" fill="#e978a8"/><circle cx="160" cy="86" r="10" fill="#2f80ed"/><circle cx="188" cy="86" r="10" fill="#e60012"/>
+</g>
+<g transform="translate(1080 290)" font-family="Noto Sans CJK TC">
+ <rect width="270" height="285" rx="18" fill="#111"/>
+ <text x="28" y="48" fill="#e3c17d" font-size="14">LECTURE MODE</text>
+ <text x="28" y="84" fill="#fff" font-size="24" font-weight="700">學生直接開網址</text>
+ <text x="28" y="120" fill="#bbb" font-size="15">不連私人案例庫</text>
+ <text x="28" y="151" fill="#bbb" font-size="15">手機 / 平板 / 電腦</text>
+ <text x="28" y="182" fill="#bbb" font-size="15">GitHub Pages 免費部署</text>
+ <rect x="28" y="215" width="214" height="42" rx="21" fill="#e8792f"/>
+ <text x="135" y="242" fill="#fff" text-anchor="middle" font-size="15" font-weight="700">liang1688</text>
+</g>
+</svg>
