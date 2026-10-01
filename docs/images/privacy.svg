@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="500" viewBox="0 0 1440 500">
+<rect width="1440" height="500" fill="#f5f1e9"/><text x="80" y="72" font-size="34" font-family="Noto Serif CJK TC" fill="#111">講課版隱私設計</text><text x="80" y="108" font-size="15" font-family="Noto Sans CJK TC" fill="#777">GitHub Pages 只放程式，不放命主資料</text>
+<g font-family="Noto Sans CJK TC" text-anchor="middle">
+ <rect x="100" y="170" width="280" height="180" rx="18" fill="#111"/><text x="240" y="220" fill="#e3c17d" font-size="16">老師個人版</text><text x="240" y="260" fill="#fff" font-size="23" font-weight="700">私人案例庫</text><text x="240" y="300" fill="#aaa" font-size="14">XiaoLiangZiweiDB</text>
+ <path d="M410 260 H600" stroke="#c59a52" stroke-width="4" stroke-dasharray="10 10"/><text x="505" y="240" fill="#8a8177" font-size="13">不連通</text>
+ <rect x="630" y="170" width="280" height="180" rx="18" fill="#fff" stroke="#cfc8bc"/><text x="770" y="220" fill="#e8792f" font-size="16">GitHub Pages</text><text x="770" y="260" fill="#111" font-size="23" font-weight="700">講課排盤程式</text><text x="770" y="300" fill="#777" font-size="14">公開 HTML / CSS / JS</text>
+ <path d="M940 260 H1120" stroke="#2f9e5b" stroke-width="4"/><polygon points="1120,260 1102,249 1102,271" fill="#2f9e5b"/>
+ <rect x="1150" y="170" width="210" height="180" rx="18" fill="#fff" stroke="#cfc8bc"/><text x="1255" y="220" fill="#2f9e5b" font-size="16">學生裝置</text><text x="1255" y="260" fill="#111" font-size="22" font-weight="700">各自排盤</text><text x="1255" y="300" fill="#777" font-size="14">不取得老師資料</text>
+</g>
+<text x="80" y="420" fill="#8a8177" font-size="14" font-family="Noto Sans CJK TC">注意：不要把命主 JSON、CSV、身分證或其他敏感資料提交到公開 GitHub repository。</text>
+</svg>
