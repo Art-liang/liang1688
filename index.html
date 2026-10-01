@@ -308,7 +308,6 @@ footer{
 
 /* 講課模式：不顯示私人案例庫與事件/回饋 */
 body.guest-mode .private-control{display:none!important}
-body.guest-mode .research-card{display:none!important}
 body.guest-mode::after{
   content:"講課模式";position:fixed;right:14px;bottom:14px;z-index:99;
   background:#111;color:#fff;border:1px solid #c59a52;border-radius:999px;
@@ -369,7 +368,7 @@ html,body{background:#f4f1ea}
 .checks{gap:8px}
 .checks label{font-size:9px}
 
-.consultation-overview,.research-card,.numerology-card,.private-control{display:none!important}
+.consultation-overview,.numerology-card,.private-control{display:none!important}
 .main-grid{grid-template-columns:1fr;gap:8px}
 .chart-card{padding:6px;border-radius:3px;box-shadow:none}
 .chart-card>.section-head{padding:5px 5px 2px;margin:0}
@@ -518,6 +517,59 @@ footer{
   .annual-tag{font-size:6px;padding:1px 2px}
 }
 
+
+/* ===== v0.7 alignment + student case notes ===== */
+.chart-grid{grid-template-rows:repeat(4, clamp(118px, 15vw, 148px)) !important;align-items:stretch}
+.palace{height:100% !important;min-height:0 !important;overflow:hidden !important}
+.center{height:100%;overflow:hidden}
+.minor-ages{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.star.romance-star{color:#d8588f !important;background:transparent !important;border:0 !important;padding:0 !important;font-weight:900}
+.romance-badge{display:none!important}
+.romance-legend{color:#d8588f;font-weight:700}
+.case-card-title{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:9px}
+.case-card-title h3{margin:0}
+.case-category-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px}
+.case-category-badge{display:inline-flex;align-items:center;border-radius:999px;padding:4px 8px;font-size:9px;font-weight:800}
+.category-case{background:#f3ede2;color:#795f35;border:1px solid #dfcfb4}
+.category-family{background:#fff0e7;color:#a75c32;border:1px solid #f1c8ae}
+.category-friend{background:#edf7ff;color:#39769b;border:1px solid #bfdcec}
+.category-love{background:#fff0f6;color:#b44e76;border:1px solid #efbdd0}
+.case-theme-case{background:#fffcf7}
+.case-theme-family{background:#fff9f5}
+.case-theme-friend{background:#f8fcff}
+.case-theme-love{background:#fff8fb}
+.case-actions .orange{font-weight:800}
+.important-notice{padding:9px 11px;margin-bottom:8px;border-radius:3px;box-shadow:none}
+.notice-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;font-size:11px}
+.notice-head .pin{color:#e8792f;margin-right:5px}
+.notice-strip{display:flex;gap:5px;overflow:auto;padding-bottom:1px}
+.notice-chip{flex:0 0 auto;border-radius:5px;padding:6px 8px;font-size:9px;border:1px solid transparent}
+.notice-love{background:#fff0f6;border-color:#efc5d5;color:#8f4965}
+.notice-health{background:#fff1ee;border-color:#edc7bf;color:#965046}
+.notice-work{background:#edf7ff;border-color:#bfdcec;color:#376f91}
+.notice-family{background:#fff6e8;border-color:#ead1a7;color:#8d682e}
+.notice-other{background:#f3f1ed;border-color:#dad4cb;color:#615b53}
+.research-card{display:block!important}
+.research-card .consult-edit{display:none!important}
+.research-grid{grid-template-columns:1fr 1fr}
+.research-card{box-shadow:none;border-radius:3px}
+.research-card .section-head .hint{font-size:8px}
+.side-stack{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+@media(max-width:700px){
+  .chart-grid{grid-template-rows:repeat(4,118px)!important}
+  .palace{height:118px!important}
+  .center{height:237px!important}
+  .side-stack{grid-template-columns:1fr 1fr!important}
+  #caseDatabaseCard{grid-column:1/-1}
+  .case-category-grid{grid-template-columns:1fr 1fr}
+  .research-grid{grid-template-columns:1fr}
+}
+@media(max-width:390px){
+  .chart-grid{grid-template-rows:repeat(4,108px)!important}
+  .palace{height:108px!important}
+  .center{height:217px!important}
+}
+
 </style>
 </head>
 <body>
@@ -525,7 +577,7 @@ footer{
     <div class="brand">
       <div class="brand-kicker">DOUSHU SCHOOL</div>
       <div class="brand-title">小梁專用</div>
-      <div class="brand-sub">紫微斗數排盤・講課版</div>
+      <div class="brand-sub">紫微斗數排盤・講課案例版</div>
     </div>
 
     <div class="top-actions">
@@ -671,6 +723,14 @@ footer{
         </div>
       </div>
 
+      <section class="card important-notice">
+        <div class="notice-head">
+          <div><span class="pin">●</span><b>重要記事</b></div>
+          <span class="hint">最近 3 筆事件｜下方可新增與編輯</span>
+        </div>
+        <div id="noticeStrip" class="notice-strip"><span class="muted">尚無記事</span></div>
+      </section>
+
       <div class="main-grid">
         <section class="chart-card card">
           <div class="section-head compact">
@@ -683,7 +743,7 @@ footer{
   <span><i class="legend-pill quan">權</i>粉</span>
   <span><i class="legend-pill ke">科</i>藍</span>
   <span><i class="legend-pill ji">忌</i>紅</span>
-  <span>紅鸞・天喜已標記</span>
+  <span class="romance-legend">紅鸞・天喜＝粉紅文字</span>
 </div>
           </div>
 
@@ -707,26 +767,47 @@ footer{
             <h3>宮干飛星</h3>
             <div id="flyPanel" class="muted">點命盤任一宮，即顯示該宮宮干四化飛入。</div>
           </section>
-
-          <section class="card side-card">
-            <div class="eyebrow">ROMANCE STARS</div>
-            <h3>紅鸞・天喜</h3>
-            <div id="romancePanel" class="muted">生成命盤後顯示紅鸞、天喜所在宮位。</div>
-          </section>
-
-          <section class="card side-card private-control" id="caseDatabaseCard">
+<section class="card side-card case-theme-case" id="caseDatabaseCard">
             <div class="eyebrow">CASE DATABASE</div>
-            <h3>案例庫</h3>
-            <label>已儲存命主
+            <div class="case-card-title">
+              <h3>學生案例庫</h3>
+              <span id="caseCategoryBadge" class="case-category-badge category-case">案例</span>
+            </div>
+
+            <div class="case-category-grid">
+              <label>案例分類
+                <select id="caseCategory">
+                  <option value="案例">案例</option>
+                  <option value="家人">家人</option>
+                  <option value="朋友">朋友</option>
+                  <option value="感情">感情</option>
+                </select>
+              </label>
+
+              <label id="relationshipSubtypeWrap" class="hidden">感情類型
+                <select id="relationshipSubtype">
+                  <option value="一般感情">一般感情</option>
+                  <option value="同性戀">同性戀</option>
+                  <option value="三角戀">三角戀</option>
+                  <option value="母胎單身">母胎單身</option>
+                  <option value="離婚">離婚</option>
+                  <option value="喪偶">喪偶</option>
+                </select>
+              </label>
+            </div>
+
+            <label>已儲存案例
               <select id="caseSelect">
                 <option value="">— 尚未選擇 —</option>
               </select>
             </label>
-            <div class="button-row tight">
+
+            <div class="button-row tight case-actions">
+              <button class="orange" id="btnStudentSave">儲存案例</button>
               <button class="ghost" id="btnLoadCase">載入</button>
               <button class="ghost danger" id="btnDeleteCase">刪除</button>
             </div>
-            <div id="saveState" class="hint">資料存於此瀏覽器 IndexedDB。</div>
+            <div id="saveState" class="hint">只儲存在這台裝置的瀏覽器，不會讀取老師私人案例庫。</div>
           </section>
         </aside>
       </div>
@@ -872,6 +953,8 @@ footer{
   const EVENT_CATEGORIES = ['身體疾病','工作事業','愛情婚姻','財務金錢','家庭親屬','搬遷旅遊','學業考試','人際朋友','法律官非','其他'];
   const EVENT_STAGES = ['已知','回饋','預測待驗'];
   const CONSULT_SOURCES = ['找我算命','前一位命理師','外部命理 / 其他老師','命主回饋'];
+  const CASE_CATEGORIES = ['案例','家人','朋友','感情'];
+  const RELATIONSHIP_SUBTYPES = ['一般感情','同性戀','三角戀','母胎單身','離婚','喪偶'];
 
   // 常見「八星數字磁場」民俗對照。
   const MAGNETIC_GROUPS = {
@@ -1007,6 +1090,8 @@ footer{
       solarDate: $('solarDate').value,
       birthTime: $('birthTime').value,
       birthPlace: $('birthPlace').value.trim(),
+      caseCategory: $('caseCategory')?.value || '案例',
+      relationshipSubtype: $('caseCategory')?.value === '感情' ? ($('relationshipSubtype')?.value || '一般感情') : '',
       settings: {
         algorithm: $('algorithm').value,
         ageDivide: $('ageDivide').value,
@@ -1022,6 +1107,9 @@ footer{
     $('solarDate').value = data.solarDate || '2000-08-16';
     $('birthTime').value = data.birthTime || '03:30';
     $('birthPlace').value = data.birthPlace || '';
+    if ($('caseCategory')) $('caseCategory').value = data.caseCategory || '案例';
+    if ($('relationshipSubtype')) $('relationshipSubtype').value = data.relationshipSubtype || '一般感情';
+    updateCaseCategoryUI();
     if (data.settings) {
       $('algorithm').value = data.settings.algorithm || 'default';
       $('ageDivide').value = data.settings.ageDivide || 'normal';
@@ -1076,7 +1164,7 @@ footer{
     const romance = star.name === '紅鸞' || star.name === '天喜';
     return `<span class="star ${cls || ''} ${romance ? 'romance-star':''}">
       <span>${esc(star.name)}</span>
-      ${romance ? `<span class="romance-badge">桃花</span>` : ''}
+      
       ${star.brightness ? `<span class="brightness">${esc(star.brightness)}</span>` : ''}
       ${star.mutagen ? `<span class="mutagen mutagen-origin ${mutagenClass(star.mutagen)}" title="生年化${esc(star.mutagen)}">${esc(star.mutagen)}</span>` : ''}
       ${scopeMut ? `<span class="mutagen mutagen-scope ${mutagenClass(scopeMut)}" title="運限化${esc(scopeMut)}">${esc(scopeMut)}</span>` : ''}
@@ -1201,7 +1289,8 @@ footer{
         ${esc(astrolabe.time)} ${esc(astrolabe.timeRange)}<br>
         命主 ${esc(astrolabe.soul)}　身主 ${esc(astrolabe.body)}<br>
         ${esc(astrolabe.fiveElementsClass)}<br>
-        派別 ${esc($('algorithm').selectedOptions?.[0]?.textContent || '')}
+        派別 ${esc($('algorithm').selectedOptions?.[0]?.textContent || '')}<br>
+        分類 ${esc(data.caseCategory || '案例')}${data.relationshipSubtype ? '・'+esc(data.relationshipSubtype) : ''}
       </div>
       ${scopeData ? `<div class="center-four">
         <span class="center-chip">${esc(scopeLabel())} ${esc(scopeData.heavenlyStem)}${esc(scopeData.earthlyBranch)}</span>
@@ -1228,30 +1317,8 @@ footer{
     });
 
     renderMutagenPanel(scopeData);
-    renderRomancePanel();
     renderFlyPanel();
     requestAnimationFrame(drawFlyLines);
-  }
-
-  function renderRomancePanel() {
-    if (!currentAstrolabe) {
-      $('romancePanel').innerHTML = '<span class="muted">生成命盤後顯示。</span>';
-      return;
-    }
-    const rows = ['紅鸞','天喜'].map(name => {
-      for (let i=0;i<currentAstrolabe.palaces.length;i++) {
-        const p = currentAstrolabe.palaces[i];
-        if (palaceContainsStar(p, name)) return {name, palace:p};
-      }
-      return null;
-    }).filter(Boolean);
-
-    $('romancePanel').innerHTML = rows.length
-      ? rows.map(x => `<div class="romance-row">
-          <b>${esc(x.name)}</b> → ${esc(x.palace.name)}
-          <div class="hint">${esc(x.palace.heavenlyStem)}${esc(x.palace.earthlyBranch)}${x.palace.isBodyPalace?'・身宮同宮':''}</div>
-        </div>`).join('')
-      : '<span class="muted">目前資料未找到紅鸞 / 天喜。</span>';
   }
 
   function renderMutagenPanel(scopeData) {
@@ -1403,7 +1470,7 @@ footer{
 
   async function initDB() {
     db = await new Promise((resolve,reject) => {
-      const r = indexedDB.open('XiaoLiangZiweiLectureV05DB',1);
+      const r = indexedDB.open('XiaoLiangZiweiLectureV07DB',1);
       r.onupgradeneeded = () => {
         const d = r.result;
         if (!d.objectStoreNames.contains('clients')) d.createObjectStore('clients',{keyPath:'id',autoIncrement:true});
@@ -1475,10 +1542,6 @@ footer{
   }
 
   async function saveCurrent(showAlert=true) {
-    if (document.body.classList.contains('guest-mode')) {
-      if (showAlert) alert('目前是講課模式，不會儲存私人案例。');
-      return;
-    }
     if (!currentAstrolabe && !generate()) return;
     let payload = recordPayload();
     if (currentRecordId) {
@@ -1492,7 +1555,7 @@ footer{
     $('saveState').textContent = `已儲存 ${new Date().toLocaleTimeString()}`;
     await refreshCases();
     $('caseSelect').value = String(id);
-    if (showAlert) alert('案例已儲存');
+    if (showAlert) alert('案例已儲存在這台裝置的瀏覽器。');
   }
 
   function queueAutosave() {
@@ -1507,7 +1570,7 @@ footer{
     const list = await allCases();
     const html = '<option value="">— 尚未選擇 —</option>' +
       list.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))
-        .map(c => `<option value="${c.id}">${esc(c.name)}・${esc(c.gender || '')}・${esc(c.solarDate || '')}</option>`).join('');
+        .map(c => `<option value="${c.id}">【${esc(c.caseCategory || '案例')}${c.relationshipSubtype ? '／'+esc(c.relationshipSubtype) : ''}】${esc(c.name)}・${esc(c.gender || '')}・${esc(c.solarDate || '')}</option>`).join('');
     $('caseSelect').innerHTML = html;
     $('dualLeft').innerHTML = html;
     $('dualRight').innerHTML = html;
@@ -1555,9 +1618,13 @@ footer{
       </select>
       <input class="ev-text" placeholder="例如：結婚、轉職、住院、搬家…" value="${esc(v.text||'')}">
       <button class="ghost danger" title="刪除">×</button>`;
-    row.querySelector('button').onclick = () => { row.remove(); queueAutosave(); };
-    row.querySelectorAll('input,select').forEach(x => { x.oninput = queueAutosave; x.onchange = queueAutosave; });
+    row.querySelector('button').onclick = () => { row.remove(); renderEventNotices(); queueAutosave(); };
+    row.querySelectorAll('input,select').forEach(x => {
+      x.oninput = () => { renderEventNotices(); queueAutosave(); };
+      x.onchange = () => { renderEventNotices(); queueAutosave(); };
+    });
     $('eventList').appendChild(row);
+    renderEventNotices();
   }
 
   function addFeedbackRow(v={}) {
@@ -1619,19 +1686,58 @@ footer{
       : '<div class="muted">尚無諮詢紀錄。可以記錄命主哪一年找你、前一位命理師說過什麼、命主後續回饋。</div>';
   }
 
+  function updateCaseCategoryUI() {
+    if (!$('caseCategory')) return;
+    const category = $('caseCategory').value || '案例';
+    const wrap = $('relationshipSubtypeWrap');
+    if (wrap) wrap.classList.toggle('hidden', category !== '感情');
+
+    const badge = $('caseCategoryBadge');
+    if (badge) {
+      badge.textContent = category === '感情'
+        ? `感情・${$('relationshipSubtype')?.value || '一般感情'}`
+        : category;
+      badge.className = `case-category-badge category-${category === '家人' ? 'family' : category === '朋友' ? 'friend' : category === '感情' ? 'love' : 'case'}`;
+    }
+
+    const card = $('caseDatabaseCard');
+    if (card) {
+      card.classList.remove('case-theme-case','case-theme-family','case-theme-friend','case-theme-love');
+      card.classList.add(`case-theme-${category === '家人' ? 'family' : category === '朋友' ? 'friend' : category === '感情' ? 'love' : 'case'}`);
+    }
+  }
+
+  function eventTone(category) {
+    if (category === '愛情婚姻') return 'notice-love';
+    if (category === '身體疾病') return 'notice-health';
+    if (category === '工作事業') return 'notice-work';
+    if (category === '家庭親屬') return 'notice-family';
+    return 'notice-other';
+  }
+
+  function renderEventNotices() {
+    const box = $('noticeStrip');
+    if (!box) return;
+    const items = readEvents().filter(x => x.year || x.text).slice(-3).reverse();
+    box.innerHTML = items.length
+      ? items.map(x => `<span class="notice-chip ${eventTone(x.category)}"><b>${esc(x.year || '—')}</b> ${esc(x.category || '其他')}｜${esc(x.text || '—')}</span>`).join('')
+      : '<span class="muted">尚無記事</span>';
+  }
+
   function clearResearch() {
     $('eventList').innerHTML = '';
     $('feedbackList').innerHTML = '';
     $('consultationList').innerHTML = '';
     $('researchNotes').value = '';
     renderConsultationSummary();
+    renderEventNotices();
   }
 
   async function exportAll() {
     const list = await allCases();
     const payload = {
       app:'小梁專用紫微斗數排盤研究系統',
-      version:'0.6',
+      version:'0.7',
       exportedAt:new Date().toISOString(),
       cases:list
     };
@@ -1801,6 +1907,7 @@ footer{
     };
 
     $('btnSave').onclick = () => saveCurrent(true);
+    $('btnStudentSave').onclick = () => saveCurrent(true);
     $('btnExport').onclick = exportAll;
     $('btnSingle').onclick = showSingle;
     $('btnDual').onclick = showDual;
@@ -1819,6 +1926,10 @@ footer{
       if (id) loadCaseById(id);
     };
     $('btnDeleteCase').onclick = deleteCurrentCase;
+
+    $('caseCategory').onchange = () => { updateCaseCategoryUI(); queueAutosave(); };
+    $('relationshipSubtype').onchange = () => { updateCaseCategoryUI(); queueAutosave(); };
+    updateCaseCategoryUI();
 
     ['scope','horoscopeDate','showAdjective','showSuiqian','showJiangqian','showBoshi','showChangsheng','showTaiSui','showYearlyLuYangTuo']
       .forEach(id => {
@@ -1853,6 +1964,8 @@ footer{
     wire();
     setGuestMode(true);
     renderConsultationSummary();
+    updateCaseCategoryUI();
+    renderEventNotices();
     if (!engine()) return;
     try {
       await initDB();
