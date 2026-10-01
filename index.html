@@ -770,7 +770,7 @@ footer{
 <section class="card side-card case-theme-case" id="caseDatabaseCard">
             <div class="eyebrow">CASE DATABASE</div>
             <div class="case-card-title">
-              <h3>學生案例庫</h3>
+              <h3>我的案例</h3>
               <span id="caseCategoryBadge" class="case-category-badge category-case">案例</span>
             </div>
 
@@ -807,7 +807,7 @@ footer{
               <button class="ghost" id="btnLoadCase">載入</button>
               <button class="ghost danger" id="btnDeleteCase">刪除</button>
             </div>
-            <div id="saveState" class="hint">只儲存在這台裝置的瀏覽器，不會讀取老師私人案例庫。</div>
+            <div id="saveState" class="hint">案例會儲存在目前使用者的個人案例空間。</div>
           </section>
         </aside>
       </div>
@@ -1737,7 +1737,7 @@ footer{
     const list = await allCases();
     const payload = {
       app:'小梁專用紫微斗數排盤研究系統',
-      version:'0.7',
+      version:'0.7.1',
       exportedAt:new Date().toISOString(),
       cases:list
     };
@@ -1831,7 +1831,7 @@ footer{
     $('btnGuestMode').classList.toggle('orange', on);
     if (on) {
       currentRecordId = null;
-      $('saveState').textContent = '講課模式：不讀取、不儲存私人案例';
+      $('saveState').textContent = '講課模式：私人資料已隔離';
     }
   }
 
