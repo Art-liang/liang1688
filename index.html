@@ -1,0 +1,1876 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>小梁專用｜紫微斗數排盤</title>
+  <style>
+
+:root{
+  --black:#111111;
+  --black2:#1c1c1c;
+  --gold:#c59a52;
+  --gold2:#e1c07b;
+  --orange:#e8792f;
+  --orange2:#b85b22;
+  --white:#fff;
+  --paper:#f7f4ed;
+  --paper2:#fcfbf8;
+  --line:#ded8ce;
+  --muted:#777169;
+  --danger:#9b3d31;
+  --shadow:0 15px 34px rgba(17,17,17,.07);
+}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{
+  margin:0;color:var(--black);background:var(--paper);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.top{
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;gap:18px;
+  padding:15px 28px;background:rgba(17,17,17,.97);color:white;
+  border-bottom:1px solid #2a2a2a
+}
+.brand-kicker{font-size:10px;letter-spacing:.27em;color:var(--gold2)}
+.brand-title{font-family:Georgia,"Noto Serif TC",serif;font-size:24px;letter-spacing:.08em;margin-top:3px}
+.brand-sub{font-size:11px;color:#aaa;margin-top:3px}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.shell{max-width:1660px;margin:0 auto;padding:24px 28px 60px}
+.card,.control-panel{
+  background:var(--white);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)
+}
+.control-panel{padding:20px;margin-bottom:15px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px}
+.section-head.compact{align-items:center;margin-bottom:12px}
+.eyebrow{font-size:10px;letter-spacing:.18em;color:var(--orange);font-weight:700}
+h1,h2,h3{margin:0}
+h1,h2{font-family:Georgia,"Noto Serif TC",serif;font-weight:500}
+h1{font-size:28px;margin-top:4px}
+h2{font-size:22px}
+h3{font-size:15px}
+.status{font-size:11px;padding:7px 10px;border-radius:999px;border:1px solid var(--line)}
+.status.ok{border-color:#b7d1bf;color:#52765d;background:#f3faf5}
+.status.error{border-color:#dfb2aa;color:#8e3b31;background:#fff5f3}
+.status.pending{color:var(--muted);background:#faf9f6}
+.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+label{display:block;color:var(--muted);font-size:11px}
+input,select,textarea{
+  width:100%;margin-top:5px;border:1px solid var(--line);border-radius:6px;
+  background:#fff;padding:9px 10px;color:var(--black);outline:none
+}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+textarea{resize:vertical}
+button{
+  border:1px solid var(--line);border-radius:6px;padding:9px 13px;background:#fff;color:var(--black)
+}
+button:hover{filter:brightness(.98)}
+.dark{background:var(--black);color:#fff;border-color:var(--black)}
+.gold{background:var(--gold);border-color:var(--gold);color:#111}
+.orange{background:var(--orange);border-color:var(--orange);color:#fff}
+.ghost{background:#fff}
+.top .ghost{background:transparent;color:#ddd;border-color:#3c3c3c}
+.top .gold{color:#111}
+.top .dark{border-color:#555}
+.small{padding:5px 9px;font-size:11px}
+.danger{color:var(--danger)}
+.button-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:15px}
+.button-row.tight{margin-top:8px}
+.hint,.muted{font-size:11px;color:var(--muted);line-height:1.6}
+.toolbar{
+  display:flex;justify-content:space-between;gap:18px;align-items:flex-end;
+  padding:13px 16px;margin-bottom:15px
+}
+.toolbar-group{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+.toolbar-group label{min-width:150px}
+.checks label{display:flex;align-items:center;gap:5px;min-width:auto;color:var(--black)}
+.checks input{width:auto;margin:0}
+.main-grid{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:15px;align-items:start}
+.chart-card{padding:17px;overflow:hidden}
+.chart-wrap{position:relative}
+.chart-grid{
+  position:relative;display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-rows:repeat(4,minmax(150px,auto));
+  gap:1px;background:#cfc7ba;border:1px solid #cfc7ba;
+  min-height:650px
+}
+.fly-svg{
+  position:absolute;inset:0;width:100%;height:100%;z-index:8;pointer-events:none;overflow:visible
+}
+.palace{
+  position:relative;background:#fff;padding:9px 9px 8px;min-width:0;z-index:5;
+  transition:.12s;border:2px solid transparent
+}
+.palace:hover{background:#fffdf8}
+.palace.selected{border-color:var(--orange);z-index:9}
+.palace-head{display:flex;justify-content:space-between;align-items:flex-start;gap:5px;margin-bottom:5px}
+.palace-name{font-weight:800;font-size:13px}
+.stem-branch{font-family:Georgia,serif;color:var(--muted);font-size:12px;white-space:nowrap}
+.body-badge,.origin-badge{
+  display:inline-block;font-size:9px;padding:2px 4px;border-radius:3px;margin-left:3px
+}
+.body-badge{background:#111;color:white}
+.origin-badge{border:1px solid var(--gold);color:#8d672a}
+.scope-name{
+  display:inline-block;font-size:10px;font-weight:700;color:var(--orange2);margin-bottom:5px;
+  border-bottom:1px solid #efd1bd
+}
+.stars{display:flex;flex-wrap:wrap;gap:3px 5px;align-items:center}
+.star{display:inline-flex;align-items:center;gap:2px;white-space:nowrap;font-size:11px}
+.star.major{font-weight:800;font-size:12px}
+.star.soft{color:#7b5a20}
+.star.tough{color:#a34c21}
+.brightness{font-size:9px;color:var(--muted)}
+.mutagen{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:16px;height:16px;border-radius:50%;font-size:9px;font-weight:800
+}
+.mutagen-origin{background:var(--gold);color:#111}
+.mutagen-scope{border:1px solid var(--orange);color:var(--orange2);background:#fff8f2}
+.group-label{font-size:9px;color:#999;margin-top:6px;margin-bottom:2px}
+.adjective-stars{font-size:9px;line-height:1.45;color:#777}
+.gods{display:flex;flex-wrap:wrap;gap:3px;margin-top:6px}
+.god{font-size:9px;border:1px solid #e6e0d7;border-radius:999px;padding:2px 5px;background:#faf9f6}
+.god.alert{background:#fff1e7;border-color:#edb98d;color:#9b4d1e;font-weight:800}
+.stage{margin-top:5px;font-size:9px;color:#999}
+.scope-stars{margin-top:5px;padding-top:4px;border-top:1px dashed #e7e1d8}
+.scope-star{font-size:9px;color:var(--orange2);margin-right:5px}
+.center{
+  grid-column:2/4;grid-row:2/4;background:#f5f0e5;padding:22px;z-index:4;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center
+}
+.center-title{font-family:Georgia,"Noto Serif TC",serif;font-size:26px;letter-spacing:.08em}
+.center-name{font-size:18px;font-weight:800;margin-top:10px}
+.center-meta{margin-top:11px;font-size:11px;line-height:1.85;color:#5c554d}
+.center-four{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.center-chip{font-size:10px;border:1px solid #d5c5a9;background:#fff9ec;padding:4px 6px;border-radius:999px}
+.legend{font-size:10px;color:var(--muted);display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.dot-gold{background:var(--gold)}
+.dot-orange{background:var(--orange)}
+.side-stack{display:grid;gap:15px}
+.side-card{padding:15px}
+.side-card h3{margin:5px 0 11px}
+.mutagen-row{
+  display:grid;grid-template-columns:30px 1fr;gap:7px;align-items:center;
+  padding:7px 0;border-bottom:1px solid #eee9e2;font-size:12px
+}
+.mutagen-row:last-child{border-bottom:0}
+.mtag{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;background:#111;color:white}
+.mtag.lu{background:var(--gold);color:#111}
+.mtag.quan{background:var(--orange)}
+.mtag.ke{background:#3c3c3c}
+.mtag.ji{background:#8a4a27}
+.fly-item{padding:7px 0;border-bottom:1px solid #eee9e2;font-size:11px}
+.fly-item:last-child{border-bottom:0}
+.fly-item b{display:inline-block;width:20px}
+.research-card{padding:18px;margin-top:15px}
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.subhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.row-card{
+  display:grid;grid-template-columns:95px 120px 1fr 32px;gap:6px;align-items:center;margin-bottom:6px
+}
+.feedback-row{grid-template-columns:125px 105px 1fr 32px}
+.row-card input,.row-card select{margin-top:0;padding:7px 8px;font-size:11px}
+.row-card button{padding:6px}
+.block{margin-top:13px}
+.loading{grid-column:1/-1;grid-row:1/-1;display:flex;align-items:center;justify-content:center;background:#fff;color:var(--muted)}
+.dual-control{padding:17px;margin-bottom:15px}
+.dual-selects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.dual-grid>.card{padding:13px;overflow:auto}
+.dual-title{font-family:Georgia,"Noto Serif TC",serif;font-size:20px;margin:3px 0 10px}
+.mini-chart{
+  min-width:650px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,minmax(115px,auto));
+  gap:1px;background:#d4cdc3;border:1px solid #d4cdc3
+}
+.mini-chart .palace{padding:7px}
+.mini-chart .center{padding:12px}
+.mini-chart .center-title{font-size:18px}
+.mini-chart .center-name{font-size:14px}
+.hidden{display:none!important}
+footer{
+  max-width:1660px;margin:0 auto;padding:19px 28px 30px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px
+}
+.social-row{display:flex;align-items:center;gap:8px}
+.social-row a{
+  width:31px;height:31px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  display:flex;align-items:center;justify-content:center;color:#111
+}
+.social-row svg{width:15px;height:15px}
+@media(max-width:1200px){
+  .form-grid{grid-template-columns:repeat(2,1fr)}
+  .main-grid{grid-template-columns:1fr}
+  .side-stack{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:900px){
+  .top{position:static;align-items:flex-start;flex-direction:column}
+  .shell{padding:16px 10px 50px}
+  .chart-card{overflow:auto}
+  .chart-wrap{min-width:850px}
+  .side-stack{grid-template-columns:1fr}
+  .research-grid,.dual-grid,.dual-selects{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .form-grid{grid-template-columns:1fr}
+  .toolbar{align-items:flex-start;flex-direction:column}
+  .row-card,.feedback-row{grid-template-columns:1fr}
+  footer{flex-direction:column;align-items:flex-start;gap:12px}
+}
+
+
+/* ===== v0.4 UI upgrades ===== */
+
+/* 四化色彩：祿綠、權粉紅、科藍、忌正紅 */
+.mutagen-lu{background:#2f9e5b!important;color:#fff!important;border-color:#2f9e5b!important}
+.mutagen-quan{background:#e978a8!important;color:#fff!important;border-color:#e978a8!important}
+.mutagen-ke{background:#2f80ed!important;color:#fff!important;border-color:#2f80ed!important}
+.mutagen-ji{background:#e60012!important;color:#fff!important;border-color:#e60012!important}
+.mtag.lu{background:#2f9e5b!important;color:#fff!important}
+.mtag.quan{background:#e978a8!important;color:#fff!important}
+.mtag.ke{background:#2f80ed!important;color:#fff!important}
+.mtag.ji{background:#e60012!important;color:#fff!important}
+.center-chip.mutagen-lu,.center-chip.mutagen-quan,.center-chip.mutagen-ke,.center-chip.mutagen-ji{border:0}
+
+/* 紅鸞天喜 */
+.star.romance-star{
+  color:#c64d79;font-weight:800;background:#fff2f7;border:1px solid #f0bfd0;
+  padding:2px 4px;border-radius:4px
+}
+.romance-badge{
+  display:inline-block;font-size:8px;line-height:1;padding:2px 3px;border-radius:999px;
+  color:#fff;background:#c64d79;margin-left:1px
+}
+.romance-row{padding:7px 0;border-bottom:1px solid #eee9e2;font-size:11px}
+.romance-row:last-child{border-bottom:0}
+.romance-row b{color:#c64d79}
+
+/* 諮詢摘要 */
+.consultation-overview{padding:15px 17px;margin-bottom:15px}
+.consultation-summary{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px
+}
+.consultation-summary>div{
+  border:1px solid var(--line);border-radius:7px;padding:9px 10px;background:#fbfaf7
+}
+.consultation-summary span{display:block;color:var(--muted);font-size:9px;margin-bottom:4px}
+.consultation-summary b{font-size:13px;font-weight:700}
+.consultation-timeline{display:flex;gap:7px;overflow:auto;padding-bottom:2px}
+.consult-chip{
+  min-width:180px;border-left:3px solid var(--gold);background:#fffaf0;border-radius:4px;
+  padding:8px 9px;font-size:10px;line-height:1.5
+}
+.consult-chip.external{border-left-color:var(--orange);background:#fff7f1}
+.consult-chip.feedback{border-left-color:#2f9e5b;background:#f5fff8}
+.consult-chip b{font-size:11px}
+.consult-edit{margin-top:18px;padding-top:15px;border-top:1px solid var(--line)}
+.consult-row{
+  display:grid;grid-template-columns:120px 145px 135px 1fr 32px;gap:6px;align-items:center;margin-bottom:6px
+}
+.consult-row input,.consult-row select{margin-top:0;padding:7px 8px;font-size:11px}
+.consult-row button{padding:6px}
+
+/* 事件分類 */
+.research-hint{margin:-2px 0 8px}
+.event-row{grid-template-columns:78px 105px 125px 1fr 32px!important}
+.feedback-row{grid-template-columns:122px 125px 92px 1fr 32px!important}
+
+/* 數字易經 */
+.numerology-card{padding:18px;margin-top:15px}
+.number-grid{
+  display:grid;grid-template-columns:minmax(280px,1.5fr) minmax(220px,1fr) auto;
+  gap:12px;align-items:end
+}
+.number-action{display:flex;gap:7px;align-items:center;padding-bottom:1px}
+.number-result{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.number-converted{
+  padding:10px 12px;background:#f6f2ea;border:1px solid #e4ddd2;border-radius:7px;
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;margin-bottom:10px;
+  word-break:break-all
+}
+.magnetic-seq{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 14px}
+.magnetic-chip{
+  border:1px solid #ddd6cb;border-radius:7px;padding:7px 9px;background:white;font-size:11px
+}
+.magnetic-chip strong{display:block;font-size:12px;color:#111}
+.magnetic-counts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.magnetic-count{
+  border:1px solid #e3ddd4;border-radius:7px;padding:8px;background:#fcfbf8;font-size:11px
+}
+.magnetic-count b{font-size:16px;display:block;margin-bottom:2px}
+.magnetic-note{margin-top:10px;font-size:11px;line-height:1.65;color:var(--muted)}
+
+/* 講課模式：不顯示私人案例庫與事件/回饋 */
+body.guest-mode .private-control{display:none!important}
+body.guest-mode .research-card{display:none!important}
+body.guest-mode::after{
+  content:"講課模式";position:fixed;right:14px;bottom:14px;z-index:99;
+  background:#111;color:#fff;border:1px solid #c59a52;border-radius:999px;
+  padding:6px 10px;font-size:10px;letter-spacing:.12em
+}
+
+@media(max-width:1000px){
+  .consultation-summary{grid-template-columns:1fr}
+  .consult-row{grid-template-columns:1fr}
+  .number-grid{grid-template-columns:1fr}
+  .magnetic-counts{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:850px){
+  .event-row,.feedback-row{grid-template-columns:1fr!important}
+}
+
+
+/* ===== v0.5 講課版：手機優先 / 緊湊排盤 ===== */
+html,body{background:#f4f1ea}
+.top{
+  position:static;
+  max-width:980px;margin:0 auto;
+  padding:10px 14px;
+  background:#fff;color:#161616;
+  border-bottom:1px solid #d8d3cb;
+}
+.brand{width:100%;text-align:center}
+.brand-kicker{display:none}
+.brand-title{
+  font-family:"Noto Serif TC","Microsoft JhengHei",serif;
+  font-size:20px;font-weight:700;letter-spacing:.06em
+}
+.brand-sub{font-size:11px;color:#666}
+.top-actions{display:none!important}
+.lecture-ribbon{
+  max-width:980px;margin:0 auto;background:#171717;color:#fff;
+  display:flex;justify-content:center;gap:10px;align-items:center;
+  padding:7px 12px;font-size:10px;letter-spacing:.04em
+}
+.lecture-ribbon span{color:#e1c07b}
+.shell{max-width:980px;padding:10px 10px 35px}
+.control-panel{box-shadow:none;border-radius:3px;padding:12px;margin-bottom:8px}
+.control-panel .section-head{margin-bottom:10px}
+.control-panel h1{font-size:20px}
+.control-panel .eyebrow,.control-panel .status{display:none}
+.form-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.form-grid label{font-size:10px}
+.form-grid input,.form-grid select{padding:7px 7px;border-radius:3px;font-size:12px}
+.button-row{margin-top:9px}
+.button-row .orange{width:150px;font-weight:800}
+.button-row .hint{font-size:9px}
+.toolbar{
+  box-shadow:none;border-radius:3px;
+  padding:8px 10px;margin-bottom:8px;align-items:center
+}
+.toolbar-group label{min-width:130px;font-size:10px}
+.toolbar input,.toolbar select{padding:6px 7px;font-size:11px}
+.checks{gap:8px}
+.checks label{font-size:9px}
+
+.consultation-overview,.research-card,.numerology-card,.private-control{display:none!important}
+.main-grid{grid-template-columns:1fr;gap:8px}
+.chart-card{padding:6px;border-radius:3px;box-shadow:none}
+.chart-card>.section-head{padding:5px 5px 2px;margin:0}
+.chart-card>.section-head h2{font-size:14px}
+.chart-card>.section-head .eyebrow{display:none}
+.mutagen-legend{font-size:9px;gap:7px}
+.legend-pill{
+  display:inline-flex;width:17px;height:17px;align-items:center;justify-content:center;
+  border-radius:50%;font-style:normal;font-weight:900;color:#fff;margin-right:2px
+}
+.legend-pill.lu{background:#2f9e5b}.legend-pill.quan{background:#e978a8}
+.legend-pill.ke{background:#2f80ed}.legend-pill.ji{background:#e60012}
+
+.chart-wrap{min-width:0!important;width:100%;overflow:hidden}
+.chart-grid{
+  min-height:0;
+  width:100%;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-rows:repeat(4,minmax(128px,auto));
+  border-color:#a9a39b;background:#a9a39b
+}
+.palace{
+  padding:5px 4px 4px;border:1px solid transparent;
+  min-height:128px;overflow:hidden
+}
+.palace.selected{border:2px solid #e8792f}
+.palace-head{margin-bottom:2px}
+.palace-name{font-size:11px;color:#bb3f35}
+.stem-branch{font-size:9px;color:#444}
+.body-badge,.origin-badge{font-size:7px}
+.scope-name{font-size:8px;margin-bottom:2px}
+.group-label{font-size:7px;margin:2px 0;color:#999}
+
+/* 星曜採接近專業排盤軟體的直排閱讀 */
+.stars{
+  display:flex;flex-direction:row;align-items:flex-start;gap:2px;
+  flex-wrap:wrap;min-height:30px
+}
+.star{
+  display:inline-flex;flex-direction:column;align-items:center;
+  writing-mode:vertical-rl;text-orientation:upright;
+  font-size:8px;line-height:1.05;letter-spacing:0;
+  max-height:72px;white-space:normal
+}
+.star.major{font-size:10px;font-weight:900;color:#202020}
+.star.soft{color:#267e5d}.star.tough{color:#b33d32}
+.brightness{font-size:7px;color:#777}
+.mutagen{writing-mode:horizontal-tb;width:14px;height:14px;font-size:8px;margin-top:1px}
+.romance-badge{
+  writing-mode:horizontal-tb;font-size:6px;padding:1px 2px;margin-top:1px
+}
+.adjective-stars{
+  font-size:7px;line-height:1.25;max-height:27px;overflow:hidden;color:#767676
+}
+.scope-stars{margin-top:2px;padding-top:2px}
+.scope-star{font-size:7px}
+.gods{gap:2px;margin-top:3px}
+.god{font-size:7px;padding:1px 3px}
+.stage{font-size:7px;margin-top:2px;color:#666}
+.center{padding:9px 7px}
+.center-title{font-size:17px}
+.center-name{font-size:12px;margin-top:5px}
+.center-meta{font-size:8px;line-height:1.55;margin-top:6px}
+.center-four{gap:3px;margin-top:5px}
+.center-chip{font-size:7px;padding:2px 4px}
+
+.side-stack{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px
+}
+.side-card{padding:9px;border-radius:3px;box-shadow:none}
+.side-card .eyebrow{display:none}
+.side-card h3{font-size:11px;margin:0 0 5px}
+.mutagen-row,.fly-item,.romance-row{font-size:9px;padding:4px 0}
+.mtag{width:20px;height:20px;font-size:8px}
+.hint,.muted{font-size:8px}
+
+footer{
+  max-width:980px;padding:12px 10px 20px;font-size:9px
+}
+
+@media(max-width:700px){
+  .lecture-ribbon{justify-content:space-between;font-size:9px}
+  .shell{padding:6px 4px 26px}
+  .control-panel{padding:8px 6px}
+  .control-panel .section-head{display:none}
+  .form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+  /* 手機先顯示最重要的 4 欄；出生地/流派設定仍保留但較小 */
+  .form-grid label{font-size:9px}
+  .form-grid input,.form-grid select{font-size:11px;padding:6px}
+  .button-row{margin-top:6px}
+  .button-row .orange{width:100%;font-size:12px;padding:8px}
+  .button-row .hint{display:none}
+
+  .toolbar{padding:6px;gap:5px}
+  .toolbar-group{width:100%;gap:5px}
+  .toolbar-group label{min-width:0;flex:1;font-size:9px}
+  .checks{display:none}
+
+  .chart-card{padding:2px}
+  .chart-card>.section-head{display:block;text-align:center}
+  .chart-card>.section-head h2{font-size:12px}
+  .mutagen-legend{justify-content:center;margin-top:4px}
+  .chart-grid{
+    grid-template-rows:repeat(4,minmax(105px,auto));
+  }
+  .palace{min-height:105px;padding:3px 2px}
+  .palace-name{font-size:9px}
+  .stem-branch{font-size:7px}
+  .star{font-size:7px;max-height:58px}
+  .star.major{font-size:8px}
+  .adjective-stars{font-size:6px;max-height:18px}
+  .god{font-size:6px}
+  .stage{font-size:6px}
+  .center{padding:4px}
+  .center-title{font-size:13px}
+  .center-name{font-size:10px}
+  .center-meta{font-size:6.8px;line-height:1.4}
+  .center-chip{font-size:6px}
+  .side-stack{grid-template-columns:1fr 1fr}
+  .side-stack .side-card:nth-child(2){grid-column:1/-1}
+}
+
+@media(max-width:390px){
+  .chart-grid{grid-template-rows:repeat(4,minmax(94px,auto))}
+  .palace{min-height:94px}
+  .star.major{font-size:7px}
+  .star{max-height:51px}
+  .center-title{font-size:12px}
+  .center-name{font-size:9px}
+  .center-meta{font-size:6.2px}
+}
+
+
+/* ===== v0.6 占驗派 / 小限 / 太歲 / 流祿羊陀 ===== */
+.annual-tags{display:flex;gap:2px;flex-wrap:wrap;margin-top:3px}
+.annual-tag{font-size:7px;font-weight:900;border-radius:3px;padding:1px 3px;border:1px solid transparent}
+.annual-tag.taisui{background:#111;color:#fff}
+.annual-tag.liulu{background:#edf9f1;color:#14723a;border-color:#9cd7b0}
+.annual-tag.liuyang{background:#fff0f4;color:#b63e68;border-color:#f1adc4}
+.annual-tag.liutuo{background:#eef5ff;color:#2f64a9;border-color:#a9c7ee}
+.minor-ages{font-size:6.5px;color:#857d73;line-height:1.25;margin-top:2px;white-space:normal}
+.annual-center{background:#171717!important;color:#fff!important;border-color:#171717!important}
+#algorithm option[value="zhanyan"]{font-weight:700}
+@media(max-width:700px){
+  .minor-ages{font-size:5.8px}
+  .annual-tag{font-size:6px;padding:1px 2px}
+}
+
+</style>
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="brand-kicker">DOUSHU SCHOOL</div>
+      <div class="brand-title">小梁專用</div>
+      <div class="brand-sub">紫微斗數排盤・講課版</div>
+    </div>
+
+    <div class="top-actions">
+      <button class="ghost" id="btnSingle">單盤</button>
+      <button class="ghost" id="btnDual">雙人合盤</button>
+      <button class="gold private-control" id="btnSave">儲存案例</button>
+      <button class="dark private-control" id="btnExport">匯出資料</button>
+      <button class="ghost orange" id="btnGuestMode" disabled title="講課版固定為隱私模式">講課模式：固定開啟</button>
+    </div>
+  </header>
+  <div class="lecture-ribbon">
+    <span>小梁專用</span>
+    <b>輸入出生資料 → 生成命盤 → 點宮位看飛星</b>
+  </div>
+
+
+  <main class="shell">
+    <section class="control-panel">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">ZI WEI DOU SHU</div>
+          <h1>紫微斗數排盤</h1>
+        </div>
+        <div id="engineStatus" class="status pending">排盤引擎載入中…</div>
+      </div>
+
+      <div class="form-grid">
+        <label>命主姓名
+          <input id="name" placeholder="案例名稱 / 命主姓名">
+        </label>
+
+        <label>性別
+          <select id="gender">
+            <option value="女">女</option>
+            <option value="男">男</option>
+          </select>
+        </label>
+
+        <label>國曆生日
+          <input id="solarDate" type="date" value="2000-08-16">
+        </label>
+
+        <label>出生時間
+          <input id="birthTime" type="time" value="03:30">
+        </label>
+
+        <label>出生地
+          <input id="birthPlace" placeholder="例如：桃園市（目前僅紀錄，不改變排盤）">
+        </label>
+
+        <label>排盤派別
+          <select id="algorithm">
+            <option value="default">通行版｜全書四化</option>
+            <option value="zhongzhou">中州派</option>
+            <option value="zhanyan">占驗派｜庚干天同科・天相忌</option>
+          </select>
+        </label>
+
+        <label>小限過宮
+          <select id="ageDivide">
+            <option value="normal">以年份換宮（虛歲）</option>
+            <option value="birthday">農曆生日後換宮</option>
+          </select>
+        </label>
+
+        <label>年干支分界
+          <select id="yearDivide">
+            <option value="normal">農曆正月初一</option>
+            <option value="exact">立春</option>
+          </select>
+        </label>
+
+        <label>晚子時
+          <select id="dayDivide">
+            <option value="forward">23:00 後歸次日</option>
+            <option value="current">23:00 後仍算當日</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button class="orange" id="btnGenerate">生成命盤</button>
+        <button class="ghost" id="btnDemo">載入官方示例</button>
+        <span class="hint">支援通行版／中州派／占驗派、十二宮、生年四化、小限、太歲、流年祿存・擎羊・陀羅與宮干飛化。</span>
+      </div>
+    </section>
+
+    <section id="singleView">
+
+      <section class="card consultation-overview private-control">
+        <div class="section-head compact">
+          <div>
+            <div class="eyebrow">CONSULTATION HISTORY</div>
+            <h2>命主諮詢紀錄摘要</h2>
+          </div>
+          <button class="ghost small" id="btnAddConsultation">＋新增紀錄</button>
+        </div>
+        <div class="consultation-summary">
+          <div>
+            <span>第一次找我</span>
+            <b id="firstConsultDate">—</b>
+          </div>
+          <div>
+            <span>最近一次找我</span>
+            <b id="lastConsultDate">—</b>
+          </div>
+          <div>
+            <span>外部命理 / 前一位命理師</span>
+            <b id="externalConsultCount">0 筆</b>
+          </div>
+        </div>
+        <div id="consultationTimeline" class="consultation-timeline">
+          <div class="muted">尚無諮詢紀錄。可以記錄命主哪一年找你、前一位命理師說過什麼、命主後續回饋。</div>
+        </div>
+      </section>
+
+      <div class="toolbar card">
+        <div class="toolbar-group">
+          <label>運限日期
+            <input id="horoscopeDate" type="date">
+          </label>
+          <label>顯示層級
+            <select id="scope">
+              <option value="origin">本命</option>
+              <option value="decadal">大限</option>
+              <option value="minor">小限</option>
+              <option value="yearly">流年／太歲</option>
+              <option value="monthly">流月</option>
+              <option value="daily">流日</option>
+              <option value="hourly">流時</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="toolbar-group checks">
+          <label><input type="checkbox" id="showAdjective" checked> 雜曜</label>
+          <label><input type="checkbox" id="showSuiqian" checked> 歲前十二神</label>
+          <label><input type="checkbox" id="showJiangqian" checked> 將前十二星</label>
+          <label><input type="checkbox" id="showBoshi" checked> 博士十二神</label>
+          <label><input type="checkbox" id="showChangsheng"> 長生十二神</label>
+          <label><input type="checkbox" id="showTaiSui" checked> 太歲</label>
+          <label><input type="checkbox" id="showYearlyLuYangTuo" checked> 流祿羊陀</label>
+        </div>
+      </div>
+
+      <div class="main-grid">
+        <section class="chart-card card">
+          <div class="section-head compact">
+            <div>
+              <div class="eyebrow">ASTROLABE</div>
+              <h2>紫微斗數十二宮</h2>
+            </div>
+            <div class="legend mutagen-legend">
+  <span><i class="legend-pill lu">祿</i>綠</span>
+  <span><i class="legend-pill quan">權</i>粉</span>
+  <span><i class="legend-pill ke">科</i>藍</span>
+  <span><i class="legend-pill ji">忌</i>紅</span>
+  <span>紅鸞・天喜已標記</span>
+</div>
+          </div>
+
+          <div id="chartWrap" class="chart-wrap">
+            <svg id="flySvg" class="fly-svg" aria-hidden="true"></svg>
+            <div id="chartGrid" class="chart-grid">
+              <div class="loading">請先生成命盤</div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="side-stack">
+          <section class="card side-card">
+            <div class="eyebrow">FOUR MUTAGENS</div>
+            <h3>四化</h3>
+            <div id="mutagenPanel" class="mutagen-panel muted">生成命盤後顯示。</div>
+          </section>
+
+          <section class="card side-card">
+            <div class="eyebrow">PALACE STEM FLYING</div>
+            <h3>宮干飛星</h3>
+            <div id="flyPanel" class="muted">點命盤任一宮，即顯示該宮宮干四化飛入。</div>
+          </section>
+
+          <section class="card side-card">
+            <div class="eyebrow">ROMANCE STARS</div>
+            <h3>紅鸞・天喜</h3>
+            <div id="romancePanel" class="muted">生成命盤後顯示紅鸞、天喜所在宮位。</div>
+          </section>
+
+          <section class="card side-card private-control" id="caseDatabaseCard">
+            <div class="eyebrow">CASE DATABASE</div>
+            <h3>案例庫</h3>
+            <label>已儲存命主
+              <select id="caseSelect">
+                <option value="">— 尚未選擇 —</option>
+              </select>
+            </label>
+            <div class="button-row tight">
+              <button class="ghost" id="btnLoadCase">載入</button>
+              <button class="ghost danger" id="btnDeleteCase">刪除</button>
+            </div>
+            <div id="saveState" class="hint">資料存於此瀏覽器 IndexedDB。</div>
+          </section>
+        </aside>
+      </div>
+
+      <section class="card research-card">
+        <div class="section-head compact">
+          <div>
+            <div class="eyebrow">CASE NOTES</div>
+            <h2>重大事件與命主回饋</h2>
+          </div>
+          <span class="hint">儲存案例後，修改此區會自動更新。</span>
+        </div>
+
+        <div class="research-grid">
+          <div>
+            <div class="subhead">
+              <h3>重大事件年表</h3>
+              <button class="ghost small" id="btnAddEvent">＋事件</button>
+            </div>
+            <div class="hint research-hint">狀態可分「已知 / 回饋 / 預測待驗」，類別可分疾病、事業、婚姻等，之後可直接做案例統計。</div>
+            <div id="eventList"></div>
+          </div>
+
+          <div>
+            <div class="subhead">
+              <h3>命主回饋 / 驗證</h3>
+              <button class="ghost small" id="btnAddFeedback">＋回饋</button>
+            </div>
+            <div id="feedbackList"></div>
+          </div>
+        </div>
+
+        <div class="consult-edit private-control">
+          <div class="subhead">
+            <h3>諮詢 / 外部算命紀錄</h3>
+            <span class="hint">新增後會同步顯示在命盤上方摘要。</span>
+          </div>
+          <div id="consultationList"></div>
+        </div>
+
+        <label class="block">研究備註
+          <textarea id="researchNotes" rows="5" placeholder="記錄飛化、事件驗證、特殊格局、講課重點…"></textarea>
+        </label>
+      </section>
+
+      <section class="card numerology-card">
+        <div class="section-head compact">
+          <div>
+            <div class="eyebrow">NUMBER I-CHING · FOLK RESEARCH</div>
+            <h2>數字易經｜八星磁場</h2>
+          </div>
+          <span class="hint">民俗研究模組；不作科學、醫療或財務判斷。</span>
+        </div>
+
+        <div class="number-grid">
+          <div>
+            <label>輸入身分證 / 英數序列
+              <input id="numberSource" autocomplete="off" placeholder="例如 A123456789">
+            </label>
+            <div class="hint">英文字母：A=1、B=2、…、Z=26。原始身分證不會寫入案例資料庫，也不會匯出。</div>
+          </div>
+
+          <div>
+            <label>0 / 5 處理方式
+              <select id="zeroFiveMode">
+                <option value="skip">略過 0、5，再分析相鄰有效數字</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="number-action">
+            <button class="orange" id="btnCalcNumber">計算八星</button>
+            <button class="ghost" id="btnClearNumber">清除</button>
+          </div>
+        </div>
+
+        <div id="numberResult" class="number-result muted">
+          輸入英數序列後，系統會逐組標示天醫、生氣、延年、伏位、絕命、禍害、五鬼、六煞。
+        </div>
+      </section>
+    </section>
+
+    <section id="dualView" class="hidden">
+      <section class="card dual-control">
+        <div class="section-head compact">
+          <div>
+            <div class="eyebrow">DUAL ASTROLABE</div>
+            <h2>雙人合盤｜水平並排</h2>
+          </div>
+          <button class="orange" id="btnSwap">交換左右盤</button>
+        </div>
+        <div class="dual-selects">
+          <label>左側命主
+            <select id="dualLeft"></select>
+          </label>
+          <label>右側命主
+            <select id="dualRight"></select>
+          </label>
+        </div>
+      </section>
+
+      <div class="dual-grid">
+        <section class="card">
+          <div id="dualLeftTitle" class="dual-title">左側命主</div>
+          <div id="dualLeftChart" class="mini-chart"></div>
+        </section>
+        <section class="card">
+          <div id="dualRightTitle" class="dual-title">右側命主</div>
+          <div id="dualRightChart" class="mini-chart"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>小梁專用・斗數小學堂・v0.6</div>
+    <div class="social-row">
+      <span>追蹤我們</span>
+      <a href="https://www.instagram.com/doushu_school/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.threads.com/@doushu_school" target="_blank" rel="noopener" aria-label="Threads" title="Threads">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18.3 8.2c-.8-3-3-4.7-6.1-4.7-4 0-6.8 2.8-6.8 8.3 0 5.6 2.9 8.7 7 8.7 3.7 0 6.2-2.1 6.2-5.1 0-2.7-2-4.4-5.1-4.4-2.6 0-4.5 1.2-4.5 3.2 0 1.6 1.3 2.7 3.1 2.7 2.8 0 4.9-2.3 4.8-5.7-.1-3.4-2-5.8-5.1-5.8"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/iztro@2.6.1/dist/iztro-v2.6.1.min.js"></script>
+  <script>
+
+(() => {
+  'use strict';
+
+  const $ = (id) => document.getElementById(id);
+  const MUTAGEN_NAMES = ['祿','權','科','忌'];
+  const STANDARD_GENG_MUTAGENS = ['太陽','武曲','太陰','天同'];
+  const ZHANYAN_GENG_MUTAGENS = ['太陽','武曲','天同','天相'];
+  const STEM_LUCUN_BRANCH = {
+    '甲':'寅','乙':'卯','丙':'巳','丁':'午','戊':'巳',
+    '己':'午','庚':'申','辛':'酉','壬':'亥','癸':'子'
+  };
+  const BRANCH_RING = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const EVENT_CATEGORIES = ['身體疾病','工作事業','愛情婚姻','財務金錢','家庭親屬','搬遷旅遊','學業考試','人際朋友','法律官非','其他'];
+  const EVENT_STAGES = ['已知','回饋','預測待驗'];
+  const CONSULT_SOURCES = ['找我算命','前一位命理師','外部命理 / 其他老師','命主回饋'];
+
+  // 常見「八星數字磁場」民俗對照。
+  const MAGNETIC_GROUPS = {
+    '天醫':['13','31','68','86','94','49','72','27'],
+    '生氣':['14','41','67','76','93','39','28','82'],
+    '延年':['19','91','87','78','43','34','62','26'],
+    '伏位':['11','22','33','44','66','77','88','99'],
+    '絕命':['12','21','69','96','84','48','73','37'],
+    '禍害':['17','71','98','89','64','46','23','32'],
+    '五鬼':['18','81','97','79','36','63','24','42'],
+    '六煞':['16','61','47','74','38','83','92','29'],
+  };
+  const MAGNETIC_NOTES = {
+    '天醫':'常見民俗關鍵字：財務、正緣、健康',
+    '生氣':'常見民俗關鍵字：貴人、人緣、活力',
+    '延年':'常見民俗關鍵字：工作能力、責任、執行',
+    '伏位':'常見民俗關鍵字：穩定、延續、等待',
+    '絕命':'常見民俗關鍵字：衝動、投資、極端決策',
+    '禍害':'常見民俗關鍵字：口舌、摩擦、溝通',
+    '五鬼':'常見民俗關鍵字：變動、想法、敏感',
+    '六煞':'常見民俗關鍵字：情緒、人際、桃花',
+  };
+
+  // 《紫微斗數全書》常用十天干四化表。之後可改成使用者自訂流派表。
+  const STEM_MUTAGENS = {
+    '甲':['廉貞','破軍','武曲','太陽'],
+    '乙':['天機','天梁','紫微','太陰'],
+    '丙':['天同','天機','文昌','廉貞'],
+    '丁':['太陰','天同','天機','巨門'],
+    '戊':['貪狼','太陰','右弼','天機'],
+    '己':['武曲','貪狼','天梁','文曲'],
+    '庚':['太陽','武曲','太陰','天同'],
+    '辛':['巨門','太陽','文曲','文昌'],
+    '壬':['天梁','紫微','左輔','武曲'],
+    '癸':['破軍','巨門','太陰','貪狼'],
+  };
+
+  const BRANCH_GRID = {
+    '巳':[1,1], '午':[1,2], '未':[1,3], '申':[1,4],
+    '辰':[2,1], '酉':[2,4],
+    '卯':[3,1], '戌':[3,4],
+    '寅':[4,1], '丑':[4,2], '子':[4,3], '亥':[4,4],
+  };
+
+  let currentAstrolabe = null;
+  let currentHoroscope = null;
+  let selectedPalaceIndex = null;
+  let currentRecordId = null;
+  let db = null;
+  let autosaveTimer = null;
+
+  function esc(v='') {
+    return String(v).replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function todayISO() {
+    const d = new Date();
+    const z = n => String(n).padStart(2,'0');
+    return `${d.getFullYear()}-${z(d.getMonth()+1)}-${z(d.getDate())}`;
+  }
+
+  function dateForIztro(iso) {
+    const [y,m,d] = iso.split('-').map(Number);
+    return `${y}-${m}-${d}`;
+  }
+
+  function hourToIndex(time) {
+    const [h] = String(time || '00:00').split(':').map(Number);
+    if (h === 23) return 12; // 晚子
+    if (h === 0) return 0;   // 早子
+    return Math.floor((h + 1) / 2); // 1~22 => 丑~亥
+  }
+
+  function engine() {
+    return window.iztro && window.iztro.astro ? window.iztro.astro : null;
+  }
+
+  function setEngineStatus() {
+    const el = $('engineStatus');
+    if (engine()) {
+      el.textContent = '排盤引擎已就緒';
+      el.className = 'status ok';
+    } else {
+      el.textContent = '排盤引擎載入失敗｜請確認網路';
+      el.className = 'status error';
+    }
+  }
+
+  function activeAlgorithm() {
+    return $('algorithm').value === 'zhongzhou' ? 'zhongzhou' : 'default';
+  }
+
+  function activeGengMutagens() {
+    return $('algorithm').value === 'zhanyan' ? ZHANYAN_GENG_MUTAGENS : STANDARD_GENG_MUTAGENS;
+  }
+
+  function mutagensForStem(stem) {
+    if (stem === '庚') return activeGengMutagens();
+    return STEM_MUTAGENS[stem] || [];
+  }
+
+  function applyConfig() {
+    const astro = engine();
+    if (!astro) throw new Error('排盤引擎尚未載入');
+    astro.config({
+      algorithm: activeAlgorithm(),
+      mutagens: { 庚: activeGengMutagens() },
+      yearDivide: $('yearDivide').value,
+      horoscopeDivide: $('yearDivide').value,
+      dayDivide: $('dayDivide').value,
+      ageDivide: $('ageDivide').value,
+    });
+  }
+
+  function buildAstrolabeFromInput(data) {
+    applyConfig();
+    const astro = engine();
+    return astro.bySolar(
+      dateForIztro(data.solarDate),
+      hourToIndex(data.birthTime),
+      data.gender,
+      true,
+      'zh-TW'
+    );
+  }
+
+  function inputData() {
+    return {
+      name: $('name').value.trim() || '未命名案例',
+      gender: $('gender').value,
+      solarDate: $('solarDate').value,
+      birthTime: $('birthTime').value,
+      birthPlace: $('birthPlace').value.trim(),
+      settings: {
+        algorithm: $('algorithm').value,
+        ageDivide: $('ageDivide').value,
+        yearDivide: $('yearDivide').value,
+        dayDivide: $('dayDivide').value,
+      }
+    };
+  }
+
+  function setInputs(data) {
+    $('name').value = data.name || '';
+    $('gender').value = data.gender || '女';
+    $('solarDate').value = data.solarDate || '2000-08-16';
+    $('birthTime').value = data.birthTime || '03:30';
+    $('birthPlace').value = data.birthPlace || '';
+    if (data.settings) {
+      $('algorithm').value = data.settings.algorithm || 'default';
+      $('ageDivide').value = data.settings.ageDivide || 'normal';
+      $('yearDivide').value = data.settings.yearDivide || 'normal';
+      $('dayDivide').value = data.settings.dayDivide || 'forward';
+    }
+  }
+
+  function getScopeData() {
+    if (!currentAstrolabe) return null;
+    const scope = $('scope').value;
+    const date = $('horoscopeDate').value || todayISO();
+    currentHoroscope = currentAstrolabe.horoscope(dateForIztro(date), 0);
+    if (scope === 'origin') return null;
+
+    if (scope === 'minor') {
+      const agePalace = currentHoroscope.agePalace?.();
+      if (!agePalace) return null;
+      const idx = currentAstrolabe.palaces.findIndex(p => p.earthlyBranch === agePalace.earthlyBranch);
+      const palaceNames = Array(12).fill('');
+      if (idx >= 0) palaceNames[idx] = `小限命宮・虛歲${currentHoroscope.age?.nominalAge ?? ''}`;
+      return {
+        isMinor: true,
+        agePalaceIndex: idx,
+        palaceNames,
+        stars: Array(12).fill(null).map(()=>[]),
+        heavenlyStem: agePalace.heavenlyStem,
+        earthlyBranch: agePalace.earthlyBranch,
+        mutagen: mutagensForStem(agePalace.heavenlyStem),
+        nominalAge: currentHoroscope.age?.nominalAge,
+      };
+    }
+
+    return currentHoroscope[scope] || null;
+  }
+
+  function starHasScopeMutagen(starName, scopeData) {
+    if (!scopeData || !Array.isArray(scopeData.mutagen)) return null;
+    const i = scopeData.mutagen.indexOf(starName);
+    return i >= 0 ? MUTAGEN_NAMES[i] : null;
+  }
+
+  function mutagenClass(m) {
+    return m === '祿' ? 'mutagen-lu'
+      : m === '權' ? 'mutagen-quan'
+      : m === '科' ? 'mutagen-ke'
+      : m === '忌' ? 'mutagen-ji' : '';
+  }
+
+  function starHTML(star, cls, scopeData) {
+    const scopeMut = starHasScopeMutagen(star.name, scopeData);
+    const romance = star.name === '紅鸞' || star.name === '天喜';
+    return `<span class="star ${cls || ''} ${romance ? 'romance-star':''}">
+      <span>${esc(star.name)}</span>
+      ${romance ? `<span class="romance-badge">桃花</span>` : ''}
+      ${star.brightness ? `<span class="brightness">${esc(star.brightness)}</span>` : ''}
+      ${star.mutagen ? `<span class="mutagen mutagen-origin ${mutagenClass(star.mutagen)}" title="生年化${esc(star.mutagen)}">${esc(star.mutagen)}</span>` : ''}
+      ${scopeMut ? `<span class="mutagen mutagen-scope ${mutagenClass(scopeMut)}" title="運限化${esc(scopeMut)}">${esc(scopeMut)}</span>` : ''}
+    </span>`;
+  }
+
+  function palaceAllStars(p) {
+    return [...(p.majorStars || []), ...(p.minorStars || []), ...(p.adjectiveStars || [])];
+  }
+
+  function palaceContainsStar(p, name) {
+    return palaceAllStars(p).some(s => s.name === name);
+  }
+
+  function scopeStarsAt(scopeData, index) {
+    if (!scopeData || !Array.isArray(scopeData.stars)) return [];
+    const list = scopeData.stars[index] || [];
+    // 流祿、流羊、流陀由本版專用疊盤標籤統一呈現，避免與 iztro 流曜重複。
+    return list.filter(s => !['流祿','流羊','流陀'].includes(s.name));
+  }
+
+  function nextBranch(branch, delta) {
+    const i = BRANCH_RING.indexOf(branch);
+    if (i < 0) return '';
+    return BRANCH_RING[(i + delta + 12) % 12];
+  }
+
+  function yearlyLuYangTuo() {
+    if (!currentHoroscope?.yearly) return null;
+    const stem = currentHoroscope.yearly.heavenlyStem;
+    const lucun = STEM_LUCUN_BRANCH[stem];
+    if (!lucun) return null;
+    return {
+      stem,
+      lucun,
+      qingyang: nextBranch(lucun, 1),
+      tuoluo: nextBranch(lucun, -1),
+    };
+  }
+
+  function annualOverlayHTML(p) {
+    if (!currentHoroscope?.yearly) return '';
+    const tags = [];
+    if ($('showTaiSui')?.checked && p.earthlyBranch === currentHoroscope.yearly.earthlyBranch) {
+      tags.push('<span class="annual-tag taisui">太歲</span>');
+    }
+    if ($('showYearlyLuYangTuo')?.checked) {
+      const trio = yearlyLuYangTuo();
+      if (trio) {
+        if (p.earthlyBranch === trio.lucun) tags.push('<span class="annual-tag liulu">流祿</span>');
+        if (p.earthlyBranch === trio.qingyang) tags.push('<span class="annual-tag liuyang">流羊</span>');
+        if (p.earthlyBranch === trio.tuoluo) tags.push('<span class="annual-tag liutuo">流陀</span>');
+      }
+    }
+    return tags.length ? `<div class="annual-tags">${tags.join('')}</div>` : '';
+  }
+
+  function godsHTML(p) {
+    const items = [];
+    if ($('showSuiqian').checked && p.suiqian12) items.push(['歲前', p.suiqian12]);
+    if ($('showJiangqian').checked && p.jiangqian12) items.push(['將前', p.jiangqian12]);
+    if ($('showBoshi').checked && p.boshi12) items.push(['博士', p.boshi12]);
+    if ($('showChangsheng').checked && p.changsheng12) items.push(['長生', p.changsheng12]);
+
+    return items.map(([type, value]) => {
+      const alert = value === '白虎' || value === '喪門';
+      return `<span class="god ${alert ? 'alert' : ''}" title="${esc(type)}">${esc(value)}</span>`;
+    }).join('');
+  }
+
+  function palaceHTML(p, index, scopeData, mini=false) {
+    const pos = BRANCH_GRID[p.earthlyBranch] || [1,1];
+    const major = (p.majorStars || []).map(s => starHTML(s, 'major', scopeData)).join('');
+    const minor = (p.minorStars || []).map(s => starHTML(s, s.type, scopeData)).join('');
+    const adjectives = $('showAdjective').checked
+      ? (p.adjectiveStars || []).map(s => esc(s.name)).join('・')
+      : '';
+    const scStars = scopeStarsAt(scopeData, index);
+    const scopeName = scopeData?.palaceNames?.[index];
+
+    return `<div class="palace ${selectedPalaceIndex === index && !mini ? 'selected':''}"
+      data-index="${index}" data-branch="${esc(p.earthlyBranch)}"
+      style="grid-row:${pos[0]};grid-column:${pos[1]}">
+      <div class="palace-head">
+        <div>
+          <span class="palace-name">${esc(p.name)}</span>
+          ${p.isBodyPalace ? '<span class="body-badge">身</span>' : ''}
+          ${p.isOriginalPalace ? '<span class="origin-badge">來因</span>' : ''}
+        </div>
+        <span class="stem-branch">${esc(p.heavenlyStem)}${esc(p.earthlyBranch)}</span>
+      </div>
+
+      ${scopeName ? `<div class="scope-name">${esc(scopeLabel())}・${esc(scopeName)}</div>` : ''}
+
+      <div class="stars">${major || '<span class="muted">空宮</span>'}</div>
+      ${minor ? `<div class="group-label">輔／煞</div><div class="stars">${minor}</div>` : ''}
+      ${adjectives ? `<div class="group-label">雜曜</div><div class="adjective-stars">${adjectives}</div>` : ''}
+      ${scStars.length ? `<div class="scope-stars">${scStars.map(s => `<span class="scope-star">${esc(s.name)}</span>`).join('')}</div>` : ''}
+      <div class="gods">${godsHTML(p)}</div>
+      ${annualOverlayHTML(p)}
+      ${p.stage?.range ? `<div class="stage">大限 ${p.stage.range[0]}–${p.stage.range[1]}</div>` : ''}
+      ${Array.isArray(p.ages) && p.ages.length ? `<div class="minor-ages">小限 ${p.ages.slice(0,7).join('・')}</div>` : ''}
+    </div>`;
+  }
+
+  function scopeLabel() {
+    return ({
+      origin:'本命',decadal:'大限',minor:'小限',yearly:'流年',monthly:'流月',daily:'流日',hourly:'流時'
+    })[$('scope').value] || '';
+  }
+
+  function centerHTML(astrolabe, scopeData) {
+    const data = inputData();
+    const four = scopeData?.mutagen || [];
+    return `<div class="center">
+      <div class="center-title">紫微斗數</div>
+      <div class="center-name">${esc(data.name)}・${esc(data.gender)}</div>
+      <div class="center-meta">
+        國曆 ${esc(astrolabe.solarDate)}<br>
+        農曆 ${esc(astrolabe.lunarDate)}<br>
+        四柱 ${esc(astrolabe.chineseDate)}<br>
+        ${esc(astrolabe.time)} ${esc(astrolabe.timeRange)}<br>
+        命主 ${esc(astrolabe.soul)}　身主 ${esc(astrolabe.body)}<br>
+        ${esc(astrolabe.fiveElementsClass)}<br>
+        派別 ${esc($('algorithm').selectedOptions?.[0]?.textContent || '')}
+      </div>
+      ${scopeData ? `<div class="center-four">
+        <span class="center-chip">${esc(scopeLabel())} ${esc(scopeData.heavenlyStem)}${esc(scopeData.earthlyBranch)}</span>
+        ${scopeData.isMinor && scopeData.nominalAge ? `<span class="center-chip">虛歲 ${esc(scopeData.nominalAge)}</span>` : ''}
+        ${four.map((s,i)=>`<span class="center-chip ${mutagenClass(MUTAGEN_NAMES[i])}">${MUTAGEN_NAMES[i]}：${esc(s)}</span>`).join('')}
+        ${currentHoroscope?.yearly ? `<span class="center-chip annual-center">太歲 ${esc(currentHoroscope.yearly.heavenlyStem)}${esc(currentHoroscope.yearly.earthlyBranch)}</span>` : ''}
+      </div>` : ''}
+    </div>`;
+  }
+
+  function renderChart() {
+    if (!currentAstrolabe) return;
+    const scopeData = getScopeData();
+    const html = currentAstrolabe.palaces.map((p,i)=>palaceHTML(p,i,scopeData)).join('') + centerHTML(currentAstrolabe, scopeData);
+    $('chartGrid').innerHTML = html;
+
+    document.querySelectorAll('#chartGrid .palace').forEach(el => {
+      el.addEventListener('click', () => {
+        selectedPalaceIndex = Number(el.dataset.index);
+        renderChart();
+        renderFlyPanel();
+        requestAnimationFrame(drawFlyLines);
+      });
+    });
+
+    renderMutagenPanel(scopeData);
+    renderRomancePanel();
+    renderFlyPanel();
+    requestAnimationFrame(drawFlyLines);
+  }
+
+  function renderRomancePanel() {
+    if (!currentAstrolabe) {
+      $('romancePanel').innerHTML = '<span class="muted">生成命盤後顯示。</span>';
+      return;
+    }
+    const rows = ['紅鸞','天喜'].map(name => {
+      for (let i=0;i<currentAstrolabe.palaces.length;i++) {
+        const p = currentAstrolabe.palaces[i];
+        if (palaceContainsStar(p, name)) return {name, palace:p};
+      }
+      return null;
+    }).filter(Boolean);
+
+    $('romancePanel').innerHTML = rows.length
+      ? rows.map(x => `<div class="romance-row">
+          <b>${esc(x.name)}</b> → ${esc(x.palace.name)}
+          <div class="hint">${esc(x.palace.heavenlyStem)}${esc(x.palace.earthlyBranch)}${x.palace.isBodyPalace?'・身宮同宮':''}</div>
+        </div>`).join('')
+      : '<span class="muted">目前資料未找到紅鸞 / 天喜。</span>';
+  }
+
+  function renderMutagenPanel(scopeData) {
+    let rows = [];
+    if (!scopeData) {
+      // 生年四化直接從星曜的 mutagen 欄位整理
+      const found = [];
+      currentAstrolabe.palaces.forEach(p => {
+        palaceAllStars(p).forEach(s => {
+          if (s.mutagen) found.push({mut:s.mutagen, star:s.name, palace:p.name});
+        });
+      });
+      rows = MUTAGEN_NAMES.map(m => {
+        const x = found.find(v => v.mut === m);
+        return {mut:m, star:x?.star || '—', palace:x?.palace || ''};
+      });
+    } else {
+      rows = MUTAGEN_NAMES.map((m,i) => {
+        const star = scopeData.mutagen?.[i] || '—';
+        const p = currentAstrolabe.palaces.find(x => palaceContainsStar(x, star));
+        return {mut:m, star, palace:p?.name || ''};
+      });
+    }
+
+    $('mutagenPanel').innerHTML = rows.map(r => `
+      <div class="mutagen-row">
+        <span class="mtag ${r.mut==='祿'?'lu':r.mut==='權'?'quan':r.mut==='科'?'ke':'ji'}">${r.mut}</span>
+        <div><b>${esc(r.star)}</b>${r.palace ? `<div class="hint">${esc(r.palace)}</div>`:''}</div>
+      </div>`).join('');
+  }
+
+  function findStarPalace(starName) {
+    for (let i=0;i<currentAstrolabe.palaces.length;i++) {
+      if (palaceContainsStar(currentAstrolabe.palaces[i], starName)) return i;
+    }
+    return -1;
+  }
+
+  function flyData() {
+    if (!currentAstrolabe || selectedPalaceIndex == null) return null;
+    const p = currentAstrolabe.palaces[selectedPalaceIndex];
+    const targets = mutagensForStem(p.heavenlyStem);
+    return {
+      source: p,
+      items: targets.map((star,i) => {
+        const idx = findStarPalace(star);
+        const target = idx >= 0 ? currentAstrolabe.palaces[idx] : null;
+        return {mut:MUTAGEN_NAMES[i], star, index:idx, target};
+      })
+    };
+  }
+
+  function renderFlyPanel() {
+    const f = flyData();
+    if (!f) {
+      $('flyPanel').innerHTML = '<span class="muted">點命盤任一宮，即顯示該宮宮干四化飛入。</span>';
+      return;
+    }
+    $('flyPanel').innerHTML = `
+      <div class="hint" style="margin-bottom:6px">
+        ${esc(f.source.name)}・${esc(f.source.heavenlyStem)}${esc(f.source.earthlyBranch)}宮干
+      </div>
+      ${f.items.map(x => `<div class="fly-item">
+        <b>${esc(x.mut)}</b> ${esc(x.star)}
+        ${x.target ? `→ ${esc(x.target.name)}（${esc(x.target.earthlyBranch)}）` : '→ 未找到星曜'}
+      </div>`).join('')}
+      <div class="hint" style="margin-top:8px">飛線依目前採用的十天干四化表繪製。</div>`;
+  }
+
+  function drawFlyLines() {
+    const svg = $('flySvg');
+    svg.innerHTML = '';
+    const f = flyData();
+    if (!f) return;
+
+    const wrap = $('chartWrap').getBoundingClientRect();
+    const sourceEl = document.querySelector(`#chartGrid .palace[data-index="${selectedPalaceIndex}"]`);
+    if (!sourceEl) return;
+    const sr = sourceEl.getBoundingClientRect();
+
+    const width = $('chartWrap').clientWidth;
+    const height = $('chartWrap').clientHeight;
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+    const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+    defs.innerHTML = `
+      <marker id="arrowGold" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="#c59a52"></path>
+      </marker>
+      <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="#e8792f"></path>
+      </marker>
+      <marker id="arrowDark" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="#333"></path>
+      </marker>
+      <marker id="arrowBrown" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="#8a4a27"></path>
+      </marker>`;
+    svg.appendChild(defs);
+
+    const sx = sr.left - wrap.left + sr.width/2;
+    const sy = sr.top - wrap.top + sr.height/2;
+
+    f.items.forEach((x,i) => {
+      if (x.index < 0) return;
+      const targetEl = document.querySelector(`#chartGrid .palace[data-index="${x.index}"]`);
+      if (!targetEl) return;
+      const tr = targetEl.getBoundingClientRect();
+      const tx = tr.left - wrap.left + tr.width/2;
+      const ty = tr.top - wrap.top + tr.height/2;
+
+      const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1',sx); line.setAttribute('y1',sy);
+      line.setAttribute('x2',tx); line.setAttribute('y2',ty);
+      const colors = ['#c59a52','#e8792f','#333','#8a4a27'];
+      const markers = ['arrowGold','arrowOrange','arrowDark','arrowBrown'];
+      const dashes = ['0','6 4','2 3','10 4 2 4'];
+      line.setAttribute('stroke', colors[i]);
+      line.setAttribute('stroke-width','2');
+      line.setAttribute('stroke-dasharray', dashes[i]);
+      line.setAttribute('opacity','.72');
+      line.setAttribute('marker-end',`url(#${markers[i]})`);
+      svg.appendChild(line);
+    });
+  }
+
+  function generate(showError=true) {
+    try {
+      if (!$('solarDate').value) throw new Error('請輸入出生日期');
+      currentAstrolabe = buildAstrolabeFromInput(inputData());
+      selectedPalaceIndex = null;
+      renderChart();
+      if (currentRecordId) queueAutosave();
+      return true;
+    } catch (e) {
+      console.error(e);
+      if (showError) alert(`排盤失敗：${e.message || e}`);
+      return false;
+    }
+  }
+
+  // IndexedDB
+  function reqP(req) {
+    return new Promise((resolve,reject) => {
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function initDB() {
+    db = await new Promise((resolve,reject) => {
+      const r = indexedDB.open('XiaoLiangZiweiLectureV05DB',1);
+      r.onupgradeneeded = () => {
+        const d = r.result;
+        if (!d.objectStoreNames.contains('clients')) d.createObjectStore('clients',{keyPath:'id',autoIncrement:true});
+      };
+      r.onsuccess = () => resolve(r.result);
+      r.onerror = () => reject(r.error);
+    });
+    await refreshCases();
+  }
+
+  async function allCases() {
+    const tx = db.transaction('clients','readonly');
+    return await reqP(tx.objectStore('clients').getAll());
+  }
+
+  async function getCase(id) {
+    const tx = db.transaction('clients','readonly');
+    return await reqP(tx.objectStore('clients').get(Number(id)));
+  }
+
+  async function putCase(obj) {
+    const tx = db.transaction('clients','readwrite');
+    const s = tx.objectStore('clients');
+    return await reqP(obj.id ? s.put(obj) : s.add(obj));
+  }
+
+  function readEvents() {
+    return [...document.querySelectorAll('.event-row')].map(r => ({
+      year:r.querySelector('.ev-year').value.trim(),
+      stage:r.querySelector('.ev-stage').value,
+      category:r.querySelector('.ev-category').value,
+      text:r.querySelector('.ev-text').value.trim(),
+    })).filter(x => x.year || x.text);
+  }
+
+  function readFeedback() {
+    return [...document.querySelectorAll('.feedback-row')].map(r => ({
+      date:r.querySelector('.fb-date').value,
+      category:r.querySelector('.fb-category').value,
+      result:r.querySelector('.fb-result').value,
+      text:r.querySelector('.fb-text').value.trim(),
+    })).filter(x => x.date || x.text);
+  }
+
+  function readConsultations() {
+    return [...document.querySelectorAll('.consult-row')].map(r => ({
+      date:r.querySelector('.co-date').value,
+      source:r.querySelector('.co-source').value,
+      category:r.querySelector('.co-category').value,
+      text:r.querySelector('.co-text').value.trim(),
+    })).filter(x => x.date || x.text);
+  }
+
+  function recordPayload() {
+    let chartJSON = null;
+    try {
+      chartJSON = currentAstrolabe?.toJSON ? currentAstrolabe.toJSON() : null;
+    } catch {}
+    return {
+      id: currentRecordId || undefined,
+      ...inputData(),
+      chartJSON,
+      events: readEvents(),
+      feedback: readFeedback(),
+      consultations: readConsultations(),
+      researchNotes: $('researchNotes').value,
+      updatedAt: new Date().toISOString(),
+    };
+  }
+
+  async function saveCurrent(showAlert=true) {
+    if (document.body.classList.contains('guest-mode')) {
+      if (showAlert) alert('目前是講課模式，不會儲存私人案例。');
+      return;
+    }
+    if (!currentAstrolabe && !generate()) return;
+    let payload = recordPayload();
+    if (currentRecordId) {
+      const old = await getCase(currentRecordId);
+      payload.createdAt = old?.createdAt || new Date().toISOString();
+    } else {
+      payload.createdAt = new Date().toISOString();
+    }
+    const id = await putCase(payload);
+    currentRecordId = id;
+    $('saveState').textContent = `已儲存 ${new Date().toLocaleTimeString()}`;
+    await refreshCases();
+    $('caseSelect').value = String(id);
+    if (showAlert) alert('案例已儲存');
+  }
+
+  function queueAutosave() {
+    if (!currentRecordId) return;
+    $('saveState').textContent = '等待自動更新…';
+    clearTimeout(autosaveTimer);
+    autosaveTimer = setTimeout(() => saveCurrent(false), 800);
+  }
+
+  async function refreshCases() {
+    if (!db) return;
+    const list = await allCases();
+    const html = '<option value="">— 尚未選擇 —</option>' +
+      list.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))
+        .map(c => `<option value="${c.id}">${esc(c.name)}・${esc(c.gender || '')}・${esc(c.solarDate || '')}</option>`).join('');
+    $('caseSelect').innerHTML = html;
+    $('dualLeft').innerHTML = html;
+    $('dualRight').innerHTML = html;
+  }
+
+  async function loadCaseById(id) {
+    const c = await getCase(id);
+    if (!c) return;
+    currentRecordId = c.id;
+    setInputs(c);
+    clearResearch();
+    (c.events || []).forEach(addEventRow);
+    (c.feedback || []).forEach(addFeedbackRow);
+    (c.consultations || []).forEach(addConsultationRow);
+    $('researchNotes').value = c.researchNotes || '';
+    renderConsultationSummary();
+    $('saveState').textContent = '案例已載入';
+    $('caseSelect').value = String(c.id);
+    generate();
+  }
+
+  async function deleteCurrentCase() {
+    const id = $('caseSelect').value || currentRecordId;
+    if (!id) return;
+    if (!confirm('確定刪除此案例？')) return;
+    const tx = db.transaction('clients','readwrite');
+    tx.objectStore('clients').delete(Number(id));
+    await new Promise(res => tx.oncomplete = res);
+    if (Number(id) === Number(currentRecordId)) currentRecordId = null;
+    await refreshCases();
+    $('saveState').textContent = '案例已刪除';
+  }
+
+  function addEventRow(v={}) {
+    const row = document.createElement('div');
+    row.className = 'row-card event-row';
+    const legacyCategory = EVENT_CATEGORIES.includes(v.type) ? v.type : '';
+    row.innerHTML = `
+      <input class="ev-year" placeholder="年份" value="${esc(v.year||'')}">
+      <select class="ev-stage">
+        ${EVENT_STAGES.map(x=>`<option ${(v.stage||'已知')===x?'selected':''}>${x}</option>`).join('')}
+      </select>
+      <select class="ev-category">
+        ${EVENT_CATEGORIES.map(x=>`<option ${(v.category||legacyCategory||'其他')===x?'selected':''}>${x}</option>`).join('')}
+      </select>
+      <input class="ev-text" placeholder="例如：結婚、轉職、住院、搬家…" value="${esc(v.text||'')}">
+      <button class="ghost danger" title="刪除">×</button>`;
+    row.querySelector('button').onclick = () => { row.remove(); queueAutosave(); };
+    row.querySelectorAll('input,select').forEach(x => { x.oninput = queueAutosave; x.onchange = queueAutosave; });
+    $('eventList').appendChild(row);
+  }
+
+  function addFeedbackRow(v={}) {
+    const row = document.createElement('div');
+    row.className = 'row-card feedback-row';
+    row.innerHTML = `
+      <input class="fb-date" type="date" value="${esc(v.date||'')}">
+      <select class="fb-category">
+        ${EVENT_CATEGORIES.map(x=>`<option ${(v.category||'其他')===x?'selected':''}>${x}</option>`).join('')}
+      </select>
+      <select class="fb-result">
+        ${['命中','部分','未應','補充'].map(x=>`<option ${v.result===x?'selected':''}>${x}</option>`).join('')}
+      </select>
+      <input class="fb-text" placeholder="命主回饋 / 實際發生內容" value="${esc(v.text||'')}">
+      <button class="ghost danger" title="刪除">×</button>`;
+    row.querySelector('button').onclick = () => { row.remove(); queueAutosave(); };
+    row.querySelectorAll('input,select').forEach(x => { x.oninput = queueAutosave; x.onchange = queueAutosave; });
+    $('feedbackList').appendChild(row);
+  }
+
+  function addConsultationRow(v={}) {
+    const row = document.createElement('div');
+    row.className = 'consult-row';
+    row.innerHTML = `
+      <input class="co-date" type="date" value="${esc(v.date||'')}">
+      <select class="co-source">
+        ${CONSULT_SOURCES.map(x=>`<option ${(v.source||'找我算命')===x?'selected':''}>${x}</option>`).join('')}
+      </select>
+      <select class="co-category">
+        ${EVENT_CATEGORIES.map(x=>`<option ${(v.category||'其他')===x?'selected':''}>${x}</option>`).join('')}
+      </select>
+      <input class="co-text" placeholder="例如：2024 找我問感情；前一位老師說 2025 會結婚；後續命主回饋…" value="${esc(v.text||'')}">
+      <button class="ghost danger" title="刪除">×</button>`;
+    row.querySelector('button').onclick = () => { row.remove(); renderConsultationSummary(); queueAutosave(); };
+    row.querySelectorAll('input,select').forEach(x => {
+      x.oninput = () => { renderConsultationSummary(); queueAutosave(); };
+      x.onchange = () => { renderConsultationSummary(); queueAutosave(); };
+    });
+    $('consultationList').appendChild(row);
+    renderConsultationSummary();
+  }
+
+  function renderConsultationSummary() {
+    const list = readConsultations().slice().sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999'));
+    const mine = list.filter(x => x.source === '找我算命');
+    const external = list.filter(x => x.source === '前一位命理師' || x.source === '外部命理 / 其他老師');
+    $('firstConsultDate').textContent = mine[0]?.date || '—';
+    $('lastConsultDate').textContent = mine[mine.length-1]?.date || '—';
+    $('externalConsultCount').textContent = `${external.length} 筆`;
+
+    $('consultationTimeline').innerHTML = list.length
+      ? list.map(x => {
+          const cls = x.source === '命主回饋' ? 'feedback' : (x.source.includes('命理師') || x.source.includes('外部')) ? 'external' : '';
+          return `<div class="consult-chip ${cls}">
+            <b>${esc(x.date || '未填日期')}・${esc(x.source)}</b><br>
+            ${esc(x.category)}｜${esc(x.text || '—')}
+          </div>`;
+        }).join('')
+      : '<div class="muted">尚無諮詢紀錄。可以記錄命主哪一年找你、前一位命理師說過什麼、命主後續回饋。</div>';
+  }
+
+  function clearResearch() {
+    $('eventList').innerHTML = '';
+    $('feedbackList').innerHTML = '';
+    $('consultationList').innerHTML = '';
+    $('researchNotes').value = '';
+    renderConsultationSummary();
+  }
+
+  async function exportAll() {
+    const list = await allCases();
+    const payload = {
+      app:'小梁專用紫微斗數排盤研究系統',
+      version:'0.6',
+      exportedAt:new Date().toISOString(),
+      cases:list
+    };
+    const blob = new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `小梁專用_紫微案例備份_${todayISO()}.json`;
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  }
+
+  function compactPalaceHTML(p,index,scopeData) {
+    return palaceHTML(p,index,scopeData,true);
+  }
+
+  function renderMiniChart(target, astrolabe, name) {
+    if (!astrolabe) {
+      target.innerHTML = '<div class="loading">請選擇已儲存案例</div>';
+      return;
+    }
+    const html = astrolabe.palaces.map((p,i)=>compactPalaceHTML(p,i,null)).join('') +
+      `<div class="center">
+        <div class="center-title">紫微斗數</div>
+        <div class="center-name">${esc(name)}</div>
+        <div class="center-meta">
+          ${esc(astrolabe.solarDate)}<br>
+          ${esc(astrolabe.lunarDate)}<br>
+          ${esc(astrolabe.chineseDate)}<br>
+          ${esc(astrolabe.fiveElementsClass)}
+        </div>
+      </div>`;
+    target.innerHTML = html;
+  }
+
+  async function renderDual() {
+    const leftId = $('dualLeft').value;
+    const rightId = $('dualRight').value;
+
+    const make = async (id) => {
+      if (!id) return null;
+      const c = await getCase(id);
+      if (!c) return null;
+      setTempConfig(c.settings);
+      const a = engine().bySolar(dateForIztro(c.solarDate), hourToIndex(c.birthTime), c.gender, true, 'zh-TW');
+      return {c,a};
+    };
+
+    try {
+      const L = await make(leftId);
+      const R = await make(rightId);
+      $('dualLeftTitle').textContent = L ? `${L.c.name}・${L.c.gender}` : '左側命主';
+      $('dualRightTitle').textContent = R ? `${R.c.name}・${R.c.gender}` : '右側命主';
+      renderMiniChart($('dualLeftChart'), L?.a, L?.c.name || '');
+      renderMiniChart($('dualRightChart'), R?.a, R?.c.name || '');
+      // 恢復單盤目前設定
+      applyConfig();
+    } catch(e) {
+      console.error(e);
+    }
+  }
+
+  function setTempConfig(settings={}) {
+    const astro = engine();
+    const preset = settings.algorithm || 'default';
+    astro.config({
+      algorithm: preset === 'zhongzhou' ? 'zhongzhou' : 'default',
+      mutagens: { 庚: preset === 'zhanyan' ? ZHANYAN_GENG_MUTAGENS : STANDARD_GENG_MUTAGENS },
+      yearDivide: settings.yearDivide || 'normal',
+      horoscopeDivide: settings.yearDivide || 'normal',
+      dayDivide: settings.dayDivide || 'forward',
+      ageDivide: settings.ageDivide || 'normal',
+    });
+  }
+
+  function showSingle() {
+    $('singleView').classList.remove('hidden');
+    $('dualView').classList.add('hidden');
+  }
+
+  async function showDual() {
+    $('singleView').classList.add('hidden');
+    $('dualView').classList.remove('hidden');
+    await refreshCases();
+    await renderDual();
+  }
+
+  function setGuestMode(on) {
+    document.body.classList.toggle('guest-mode', on);
+    sessionStorage.setItem('xiaoliangGuestMode', on ? '1' : '0');
+    $('btnGuestMode').textContent = `講課模式：${on ? '開' : '關'}`;
+    $('btnGuestMode').classList.toggle('orange', on);
+    if (on) {
+      currentRecordId = null;
+      $('saveState').textContent = '講課模式：不讀取、不儲存私人案例';
+    }
+  }
+
+  function alphaToDigits(raw) {
+    return String(raw || '').toUpperCase().split('').map(ch => {
+      if (/[A-Z]/.test(ch)) return String(ch.charCodeAt(0) - 64);
+      if (/[0-9]/.test(ch)) return ch;
+      return '';
+    }).join('');
+  }
+
+  function magneticType(pair) {
+    for (const [name, pairs] of Object.entries(MAGNETIC_GROUPS)) {
+      if (pairs.includes(pair)) return name;
+    }
+    return null;
+  }
+
+  function calcNumberEnergy() {
+    const raw = $('numberSource').value.trim();
+    if (!raw) {
+      $('numberResult').innerHTML = '<span class="muted">請先輸入英數序列。</span>';
+      return;
+    }
+
+    const converted = alphaToDigits(raw);
+    const effective = converted.split('').filter(d => d !== '0' && d !== '5');
+    const items = [];
+
+    for (let i=0;i<effective.length-1;i++) {
+      const pair = effective[i] + effective[i+1];
+      const type = magneticType(pair);
+      items.push({pair, type:type || '未分類'});
+    }
+
+    const counts = {};
+    Object.keys(MAGNETIC_GROUPS).forEach(k => counts[k] = 0);
+    items.forEach(x => { if (counts[x.type] != null) counts[x.type]++; });
+
+    $('numberResult').innerHTML = `
+      <div class="number-converted"><b>字母數字轉換：</b>${esc(converted)}<br><b>有效序列：</b>${esc(effective.join(''))}</div>
+      <div class="magnetic-seq">
+        ${items.length ? items.map(x => `<div class="magnetic-chip">
+          <strong>${esc(x.pair)}・${esc(x.type)}</strong>
+          ${esc(MAGNETIC_NOTES[x.type] || '')}
+        </div>`).join('') : '<span class="muted">有效數字不足兩碼。</span>'}
+      </div>
+      <div class="magnetic-counts">
+        ${Object.entries(counts).map(([k,v]) => `<div class="magnetic-count"><b>${v}</b>${esc(k)}</div>`).join('')}
+      </div>
+      <div class="magnetic-note">
+        A=1、B=2…Z=26；此版本先採常見八星數字磁場對照。0、5 先略過，再分析相鄰有效數字。
+        不同數字易經流派對 0、5、字母與組合強弱可能有不同規則，所以此結果只作民俗案例研究。
+      </div>`;
+  }
+
+  function wire() {
+    $('horoscopeDate').value = todayISO();
+
+    $('btnGenerate').onclick = () => generate();
+    $('btnDemo').onclick = () => {
+      currentRecordId = null;
+      setInputs({
+        name:'官方示例',
+        gender:'女',
+        solarDate:'2000-08-16',
+        birthTime:'03:30',
+        birthPlace:'',
+        settings:{algorithm:'default',ageDivide:'normal',yearDivide:'normal',dayDivide:'forward'}
+      });
+      clearResearch();
+      generate();
+    };
+
+    $('btnSave').onclick = () => saveCurrent(true);
+    $('btnExport').onclick = exportAll;
+    $('btnSingle').onclick = showSingle;
+    $('btnDual').onclick = showDual;
+    $('btnAddEvent').onclick = () => { addEventRow(); queueAutosave(); };
+    $('btnAddFeedback').onclick = () => { addFeedbackRow(); queueAutosave(); };
+    $('btnAddConsultation').onclick = () => { addConsultationRow(); queueAutosave(); };
+    $('btnGuestMode').onclick = () => {};
+    $('btnCalcNumber').onclick = calcNumberEnergy;
+    $('btnClearNumber').onclick = () => {
+      $('numberSource').value = '';
+      $('numberResult').innerHTML = '輸入英數序列後，系統會逐組標示天醫、生氣、延年、伏位、絕命、禍害、五鬼、六煞。';
+    };
+
+    $('btnLoadCase').onclick = () => {
+      const id = $('caseSelect').value;
+      if (id) loadCaseById(id);
+    };
+    $('btnDeleteCase').onclick = deleteCurrentCase;
+
+    ['scope','horoscopeDate','showAdjective','showSuiqian','showJiangqian','showBoshi','showChangsheng','showTaiSui','showYearlyLuYangTuo']
+      .forEach(id => {
+        $(id).onchange = () => { if (currentAstrolabe) renderChart(); };
+      });
+
+    ['algorithm','ageDivide','yearDivide','dayDivide'].forEach(id => {
+      $(id).onchange = () => { if (currentAstrolabe) generate(false); };
+    });
+
+    ['name','gender','solarDate','birthTime','birthPlace'].forEach(id => {
+      $(id).oninput = queueAutosave;
+      $(id).onchange = queueAutosave;
+    });
+
+    $('researchNotes').oninput = queueAutosave;
+
+    $('dualLeft').onchange = renderDual;
+    $('dualRight').onchange = renderDual;
+    $('btnSwap').onclick = () => {
+      const l = $('dualLeft').value, r = $('dualRight').value;
+      $('dualLeft').value = r;
+      $('dualRight').value = l;
+      renderDual();
+    };
+
+    window.addEventListener('resize', () => requestAnimationFrame(drawFlyLines));
+  }
+
+  async function boot() {
+    setEngineStatus();
+    wire();
+    setGuestMode(true);
+    renderConsultationSummary();
+    if (!engine()) return;
+    try {
+      await initDB();
+      generate(false);
+    } catch(e) {
+      console.error(e);
+      $('engineStatus').textContent = '初始化失敗';
+      $('engineStatus').className = 'status error';
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(boot, 0));
+  } else {
+    setTimeout(boot, 0);
+  }
+})();
+
+</script>
+</body>
+</html>
