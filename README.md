@@ -1,7 +1,7 @@
 # ✦ 小梁專用｜紫微斗數排盤・講課版
 
 <p align="center">
-  <img src="docs/images/hero.png" alt="小梁專用紫微斗數排盤講課版" width="100%">
+  <img src="docs/images/hero.svg" alt="小梁專用紫微斗數排盤講課版" width="100%">
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
 ## 🧭 v0.6 重點功能
 
 <p align="center">
-  <img src="docs/images/features.png" alt="v0.6 排盤功能" width="100%">
+  <img src="docs/images/features.svg" alt="v0.6 排盤功能" width="100%">
 </p>
 
 ### 1. 三種排盤 / 四化選項
@@ -119,7 +119,7 @@
 ## 🔐 講課版隱私
 
 <p align="center">
-  <img src="docs/images/privacy.png" alt="講課版資料隔離" width="100%">
+  <img src="docs/images/privacy.svg" alt="講課版資料隔離" width="100%">
 </p>
 
 這個 GitHub Pages 版本的原則是：**公開的是排盤程式，不是老師的命主資料。**
@@ -157,9 +157,9 @@ liang1688/
 ├─ README.md
 └─ docs/
    └─ images/
-      ├─ hero.png
-      ├─ features.png
-      └─ privacy.png
+      ├─ hero.svg
+      ├─ features.svg
+      └─ privacy.svg
 ```
 
 接著到 GitHub：
