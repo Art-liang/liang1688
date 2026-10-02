@@ -570,6 +570,29 @@ footer{
   .center{height:217px!important}
 }
 
+
+/* ===== v0.7.2 中宮四柱八字 ===== */
+.bazi-box{
+  width:min(92%,360px);margin:7px auto 3px;border:1px solid #cfc6b8;background:rgba(255,255,255,.72);
+}
+.bazi-title{
+  padding:3px 6px;border-bottom:1px solid #d9d0c3;font-size:8px;letter-spacing:.16em;
+  color:#7b6b54;font-weight:800;
+}
+.bazi-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.bazi-col{padding:4px 2px;border-right:1px solid #ddd5c8;text-align:center}
+.bazi-col:last-child{border-right:0}
+.bazi-label{display:block;font-size:7px;color:#8b8379;margin-bottom:2px}
+.bazi-stem{display:block;font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-size:14px;font-weight:900;line-height:1.15;color:#171717}
+.bazi-branch{display:block;font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-size:14px;font-weight:900;line-height:1.15;color:#9b4d32}
+@media(max-width:700px){
+  .bazi-box{width:96%;margin:4px auto 2px}
+  .bazi-title{font-size:6px;padding:2px}
+  .bazi-col{padding:2px 1px}
+  .bazi-label{font-size:5.5px}
+  .bazi-stem,.bazi-branch{font-size:10px}
+}
+
 </style>
 </head>
 <body>
@@ -1276,16 +1299,43 @@ footer{
     })[$('scope').value] || '';
   }
 
+  function fourPillarsHTML(chineseDate) {
+    const raw = String(chineseDate || '').trim();
+    let pillars = raw.split(/\s+/).filter(Boolean);
+
+    if (pillars.length < 4) {
+      const chars = raw.replace(/[\s｜|、，,\/\-]/g,'').match(/[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]/g) || [];
+      if (chars.length >= 4) pillars = chars.slice(0,4);
+    }
+
+    const labels = ['年柱','月柱','日柱','時柱'];
+    if (pillars.length < 4) return '';
+
+    return `<div class="bazi-box">
+      <div class="bazi-title">四柱八字</div>
+      <div class="bazi-grid">
+        ${pillars.slice(0,4).map((p,i)=>{
+          const chars = [...p];
+          return `<div class="bazi-col">
+            <span class="bazi-label">${labels[i]}</span>
+            <span class="bazi-stem">${esc(chars[0] || '')}</span>
+            <span class="bazi-branch">${esc(chars[1] || '')}</span>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }
+
   function centerHTML(astrolabe, scopeData) {
     const data = inputData();
     const four = scopeData?.mutagen || [];
     return `<div class="center">
       <div class="center-title">紫微斗數</div>
       <div class="center-name">${esc(data.name)}・${esc(data.gender)}</div>
+      ${fourPillarsHTML(astrolabe.chineseDate)}
       <div class="center-meta">
         國曆 ${esc(astrolabe.solarDate)}<br>
         農曆 ${esc(astrolabe.lunarDate)}<br>
-        四柱 ${esc(astrolabe.chineseDate)}<br>
         ${esc(astrolabe.time)} ${esc(astrolabe.timeRange)}<br>
         命主 ${esc(astrolabe.soul)}　身主 ${esc(astrolabe.body)}<br>
         ${esc(astrolabe.fiveElementsClass)}<br>
@@ -1737,7 +1787,7 @@ footer{
     const list = await allCases();
     const payload = {
       app:'小梁專用紫微斗數排盤研究系統',
-      version:'0.7.1',
+      version:'0.7.2',
       exportedAt:new Date().toISOString(),
       cases:list
     };
