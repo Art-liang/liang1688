@@ -593,6 +593,115 @@ footer{
   .bazi-stem,.bazi-branch{font-size:10px}
 }
 
+
+/* ===== v0.7.4 readability + mobile toolbar + case records ===== */
+.chart-card{padding:10px 10px 12px;background:#fff;border-color:#d7d1c6}
+.chart-card > .section-head{padding:6px 8px 8px}
+.chart-card>.section-head h2{font-size:18px;color:#111}
+.mutagen-legend{font-size:11px}
+.chart-grid{background:#9a948a!important;border:1px solid #9a948a!important;grid-template-rows:repeat(4,minmax(164px,auto))!important}
+.palace{background:#fff!important;padding:10px 8px 8px!important;color:#111!important}
+.palace:hover{background:#fffefb!important}
+.palace-head{margin-bottom:6px!important}
+.palace-name{font-size:22px!important;font-weight:900!important;color:#ba3d2c!important;letter-spacing:.02em}
+.stem-branch{font-size:16px!important;color:#333!important;font-weight:700}
+.scope-name{font-size:12px!important;color:#111!important;border-bottom:0!important;font-weight:800}
+.stars{gap:4px 8px!important;min-height:42px!important}
+.star{font-size:15px!important;color:#111!important}
+.star.major{font-size:24px!important;font-weight:900!important;line-height:1.05}
+.star.soft{color:#1f6f53!important}.star.tough{color:#b84d32!important}
+.brightness{font-size:11px!important;color:#666!important}
+.group-label,.adjective-stars,.stage{font-size:12px!important;color:#555!important}
+.scope-star,.god{font-size:12px!important}.god{padding:3px 6px!important;background:#fff!important}
+.mutagen{width:20px!important;height:20px!important;font-size:11px!important}
+.center.center-wmx{background:#f8f4ea!important;padding:18px 18px 16px!important;border:1px solid #cfc4af}
+.center-brand{font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-size:16px;font-weight:900;color:#222;letter-spacing:.08em;margin-bottom:4px}
+.center-title{font-size:30px!important;font-weight:900!important;color:#111;letter-spacing:.04em;margin-bottom:4px}
+.center-name{font-size:20px!important;font-weight:900!important;margin:0 0 10px!important;color:#111}
+.center-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px;width:min(100%,540px);margin:0 auto 10px;text-align:left}
+.center-info-grid div{display:flex;gap:6px;align-items:baseline;font-size:13px;color:#2e2e2e}
+.center-info-grid b{min-width:34px;color:#6b6255;font-size:12px}.center-info-grid span{font-weight:700}
+.center-bazi-wrap{width:min(100%,520px);margin:6px auto 10px;border:1px solid #cfc3b5;background:#fff}
+.center-bazi-title{padding:5px 8px;border-bottom:1px solid #ddd3c8;font-size:12px;font-weight:800;color:#5c5449;letter-spacing:.16em}
+.center-bazi-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.center-bazi-grid .bazi-col{padding:8px 4px;border-right:1px solid #e1d8ce;text-align:center}
+.center-bazi-grid .bazi-col:last-child{border-right:0}
+.bazi-label{display:block;font-size:11px;color:#8b8175;margin-bottom:2px}
+.bazi-stem,.bazi-branch{display:block;font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-size:28px;font-weight:900;line-height:1.06}
+.bazi-stem{color:#111}.bazi-branch{color:#a43f2b}
+.center-four.center-four-lite{margin-top:6px!important;gap:7px!important}
+.center-chip{font-size:12px!important;padding:4px 8px!important;background:#fff!important;border:1px solid #d5c5a9!important}
+.center-chip.primary{background:#111!important;color:#fff!important;border-color:#111!important}
+.scope-overview{margin-top:8px;border:1px solid #d8d0c3;background:#fff;padding:8px 10px;border-radius:3px;font-size:12px;color:#333;line-height:1.7}
+.scope-row{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.scope-tag{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;border:1px solid #ddd2c4;background:#f8f5ef;font-size:12px;color:#333;font-weight:700}
+.scope-tag.primary{background:#111;color:#fff;border-color:#111}.scope-desc{font-size:12px;color:#666}
+
+.toolbar{display:block!important}
+.toolbar > .toolbar-group:first-child{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:10px!important;width:100%!important;align-items:end!important}
+.toolbar > .toolbar-group:first-child label{min-width:0!important;width:100%!important;display:block!important}
+.toolbar > .toolbar-group:first-child input,.toolbar > .toolbar-group:first-child select{width:100%!important;min-width:0!important;max-width:100%!important;display:block!important}
+.toolbar .checks{margin-top:8px!important}
+.romance-legend{display:none!important}
+
+.case-records{grid-column:1/-1;padding:0!important;overflow:hidden;box-shadow:none!important;border-radius:4px!important;background:#fff!important}
+.case-records-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 8px}
+.case-records-head h3{font-size:20px;margin:2px 0 0}
+.case-search-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:8px 16px}
+.case-search-row input{margin:0;background:#f5f5f5;border-color:#ececec;border-radius:9px;font-size:14px;padding:11px 12px}
+.case-tabs{display:flex;gap:20px;padding:4px 16px 0;border-bottom:1px solid #eee;overflow:auto}
+.case-tab{border:0;background:transparent;border-radius:0;padding:10px 2px 9px;color:#888;font-weight:800;white-space:nowrap}
+.case-tab.active{color:#9d7b3d;border-bottom:2px solid #b69a60}
+.case-editor-strip{display:grid;grid-template-columns:150px 170px auto auto;gap:8px;align-items:end;padding:10px 16px;background:#fbfaf7;border-bottom:1px solid #eee}
+.case-editor-strip label{margin:0}.case-editor-strip select{margin-top:4px}.case-editor-strip .case-category-badge{align-self:center}
+.case-select-hidden{display:none!important}
+.case-record-list{background:#fff}
+.case-record-row{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;text-align:left;border:0;border-bottom:1px solid #eee;border-radius:0;background:#fff;padding:13px 16px;color:#111}
+.case-record-row:hover,.case-record-row.selected{background:#faf8f3}
+.case-main{display:grid;grid-template-columns:auto auto 1fr;align-items:baseline;gap:6px 8px;min-width:0}
+.case-name{font-size:18px;font-weight:900;grid-column:1}.case-gender{font-size:13px;color:#777;grid-column:2}
+.case-date{font-size:12px;color:#777;grid-column:1/-1}
+.case-subtag{grid-column:1/-1;display:inline-flex;width:max-content;border-radius:999px;padding:3px 7px;font-size:10px;border:1px solid transparent}
+.case-pillars{display:grid;grid-template-columns:repeat(4,24px);gap:2px;text-align:center}
+.case-pillars span{display:grid;line-height:1.05}
+.case-pillars b,.case-pillars i{font-style:normal;font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-size:18px;font-weight:900}
+.case-pillars b{color:#267ae8}.case-pillars i{color:#cc8122}
+.case-pillars span:nth-child(2n) b{color:#c64a37}.case-pillars span:nth-child(3n) i{color:#b84232}
+.case-pillars em{font-size:11px;color:#999;font-style:normal}
+.case-empty{padding:28px 16px;text-align:center;color:#999;font-size:13px}
+.case-bottom-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 16px 14px;background:#fff}
+.side-stack{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+
+@media(max-width:700px){
+  .chart-grid{grid-template-rows:repeat(4,minmax(122px,auto))!important}
+  .palace{padding:4px 3px 3px!important}.palace-name{font-size:15px!important}.stem-branch{font-size:10px!important}
+  .star{font-size:9px!important;max-height:unset!important}.star.major{font-size:14px!important}
+  .group-label,.adjective-stars,.stage,.scope-star,.god{font-size:8px!important}
+  .mutagen{width:14px!important;height:14px!important;font-size:8px!important}
+  .center.center-wmx{padding:8px 5px!important}.center-brand{font-size:10px!important;margin-bottom:2px}
+  .center-title{font-size:18px!important}.center-name{font-size:13px!important;margin-bottom:6px!important}
+  .center-info-grid{gap:3px 8px;width:100%;margin-bottom:6px}.center-info-grid div{font-size:8px}.center-info-grid b{min-width:24px;font-size:7px}
+  .center-bazi-wrap{width:100%;margin:4px auto 6px}.center-bazi-title{font-size:8px;padding:3px 4px}
+  .center-bazi-grid .bazi-col{padding:3px 1px}.bazi-label{font-size:6px}.bazi-stem,.bazi-branch{font-size:14px}
+  .center-chip,.scope-tag{font-size:8px!important;padding:3px 5px!important}.scope-overview{font-size:9px;padding:6px 7px}
+
+  .toolbar{padding:9px 8px!important}
+  .toolbar > .toolbar-group:first-child{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:7px!important}
+  .toolbar > .toolbar-group:first-child label{font-size:11px!important}
+  .toolbar > .toolbar-group:first-child input,.toolbar > .toolbar-group:first-child select{font-size:16px!important;padding:9px 7px!important;height:42px!important;-webkit-appearance:none;appearance:none}
+  .toolbar input[type="date"]{min-width:0!important;text-align:left!important}
+  .toolbar .checks{display:flex!important;gap:7px!important;overflow-x:auto!important;flex-wrap:nowrap!important;padding-bottom:2px!important}
+  .toolbar .checks label{white-space:nowrap!important;flex:0 0 auto!important}
+
+  .case-records-head{padding:12px 12px 6px}.case-records-head h3{font-size:18px}
+  .case-search-row{padding:7px 12px}.case-tabs{padding-left:12px;padding-right:12px;gap:18px}
+  .case-editor-strip{grid-template-columns:1fr 1fr;padding:9px 12px}
+  .case-editor-strip .case-category-badge{display:none}.case-editor-strip #btnStudentSave{grid-column:1/-1}
+  .case-record-row{padding:12px;gap:8px}.case-name{font-size:17px}.case-date{font-size:11px}
+  .case-pillars{grid-template-columns:repeat(4,21px)}.case-pillars b,.case-pillars i{font-size:16px}
+  .case-bottom-actions{padding:9px 12px 12px}
+}
+
 </style>
 </head>
 <body>
@@ -766,7 +875,6 @@ footer{
   <span><i class="legend-pill quan">權</i>粉</span>
   <span><i class="legend-pill ke">科</i>藍</span>
   <span><i class="legend-pill ji">忌</i>紅</span>
-  <span class="romance-legend">紅鸞・天喜＝粉紅文字</span>
 </div>
           </div>
 
@@ -776,6 +884,7 @@ footer{
               <div class="loading">請先生成命盤</div>
             </div>
           </div>
+          <div id="scopeOverview" class="scope-overview muted">生成命盤後顯示大限 / 小限 / 流年摘要。</div>
         </section>
 
         <aside class="side-stack">
@@ -790,15 +899,30 @@ footer{
             <h3>宮干飛星</h3>
             <div id="flyPanel" class="muted">點命盤任一宮，即顯示該宮宮干四化飛入。</div>
           </section>
-<section class="card side-card case-theme-case" id="caseDatabaseCard">
-            <div class="eyebrow">CASE DATABASE</div>
-            <div class="case-card-title">
-              <h3>我的案例</h3>
-              <span id="caseCategoryBadge" class="case-category-badge category-case">案例</span>
+<section class="card case-records case-theme-case" id="caseDatabaseCard">
+            <div class="case-records-head">
+              <div>
+                <div class="eyebrow">CASE RECORDS</div>
+                <h3>案例紀錄</h3>
+              </div>
+              <button class="ghost small" id="btnNewCase">＋ 新增</button>
             </div>
 
-            <div class="case-category-grid">
-              <label>案例分類
+            <div class="case-search-row">
+              <input id="caseSearch" type="search" placeholder="搜尋姓名、日期、分類">
+              <button class="ghost small" id="btnCaseFilter">篩選</button>
+            </div>
+
+            <div class="case-tabs" id="caseTabs">
+              <button class="case-tab active" data-category="全部">全部</button>
+              <button class="case-tab" data-category="案例">案例</button>
+              <button class="case-tab" data-category="家人">家人</button>
+              <button class="case-tab" data-category="朋友">朋友</button>
+              <button class="case-tab" data-category="感情">感情</button>
+            </div>
+
+            <div class="case-editor-strip">
+              <label>分類
                 <select id="caseCategory">
                   <option value="案例">案例</option>
                   <option value="家人">家人</option>
@@ -806,7 +930,6 @@ footer{
                   <option value="感情">感情</option>
                 </select>
               </label>
-
               <label id="relationshipSubtypeWrap" class="hidden">感情類型
                 <select id="relationshipSubtype">
                   <option value="一般感情">一般感情</option>
@@ -817,20 +940,23 @@ footer{
                   <option value="喪偶">喪偶</option>
                 </select>
               </label>
+              <span id="caseCategoryBadge" class="case-category-badge category-case">案例</span>
+              <button class="orange" id="btnStudentSave">儲存目前案例</button>
             </div>
 
-            <label>已儲存案例
-              <select id="caseSelect">
-                <option value="">— 尚未選擇 —</option>
-              </select>
-            </label>
+            <select id="caseSelect" class="case-select-hidden" aria-hidden="true">
+              <option value="">— 尚未選擇 —</option>
+            </select>
 
-            <div class="button-row tight case-actions">
-              <button class="orange" id="btnStudentSave">儲存案例</button>
-              <button class="ghost" id="btnLoadCase">載入</button>
-              <button class="ghost danger" id="btnDeleteCase">刪除</button>
+            <div id="caseRecordList" class="case-record-list">
+              <div class="case-empty">尚無案例</div>
             </div>
-            <div id="saveState" class="hint">案例會儲存在目前使用者的個人案例空間。</div>
+
+            <div class="case-bottom-actions">
+              <button class="ghost" id="btnLoadCase">載入選取案例</button>
+              <button class="ghost danger" id="btnDeleteCase">刪除選取案例</button>
+              <span id="saveState" class="hint">案例會儲存在目前使用者的個人案例空間。</span>
+            </div>
           </section>
         </aside>
       </div>
@@ -1326,28 +1452,76 @@ footer{
     </div>`;
   }
 
+  function parseFourPillars(chineseDate) {
+    const raw = String(chineseDate || '').trim();
+    let pillars = raw.split(/\s+/).filter(Boolean);
+    if (pillars.length < 4) {
+      pillars = raw.replace(/[\s｜|、，,\/\-]/g,'').match(/[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]/g) || [];
+    }
+    return pillars.slice(0,4);
+  }
+
+  function fourPillarsHTML(chineseDate) {
+    const pillars = parseFourPillars(chineseDate);
+    const labels = ['年柱','月柱','日柱','時柱'];
+    if (pillars.length < 4) return '';
+    return `<div class="center-bazi-wrap">
+      <div class="center-bazi-title">四柱八字</div>
+      <div class="center-bazi-grid">
+        ${pillars.map((p,i)=>`<div class="bazi-col">
+          <span class="bazi-label">${labels[i]}</span>
+          <span class="bazi-stem">${esc(p[0] || '')}</span>
+          <span class="bazi-branch">${esc(p[1] || '')}</span>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }
+
+  function renderScopeOverview(scopeData) {
+    const el = $('scopeOverview');
+    if (!el) return;
+    if (!currentAstrolabe) {
+      el.innerHTML = '<span class="muted">生成命盤後顯示大限 / 小限 / 流年摘要。</span>';
+      return;
+    }
+    if (!scopeData) {
+      el.innerHTML = '<div class="scope-row"><span class="scope-tag primary">本命</span><span class="scope-desc">運限資訊會依選擇的大限 / 小限 / 流年顯示在這裡。</span></div>';
+      return;
+    }
+    const four = Array.isArray(scopeData.mutagen) ? scopeData.mutagen : [];
+    const chips = [
+      `<span class="scope-tag primary">${esc(scopeLabel())}</span>`,
+      `<span class="scope-tag">${esc(scopeData.heavenlyStem || '')}${esc(scopeData.earthlyBranch || '')}</span>`
+    ];
+    if (scopeData.isMinor && scopeData.nominalAge) chips.push(`<span class="scope-tag">虛歲 ${esc(scopeData.nominalAge)}</span>`);
+    if (currentHoroscope?.yearly) chips.push(`<span class="scope-tag">太歲 ${esc(currentHoroscope.yearly.heavenlyStem)}${esc(currentHoroscope.yearly.earthlyBranch)}</span>`);
+    const fourChips = four.map((s,i)=>`<span class="scope-tag ${mutagenClass(MUTAGEN_NAMES[i])}">${MUTAGEN_NAMES[i]} ${esc(s)}</span>`).join('');
+    el.innerHTML = `<div class="scope-row">${chips.join('')}${fourChips}</div>`;
+  }
+
   function centerHTML(astrolabe, scopeData) {
     const data = inputData();
     const four = scopeData?.mutagen || [];
-    return `<div class="center">
+    return `<div class="center center-wmx">
+      <div class="center-brand">斗數小學堂@小梁</div>
       <div class="center-title">紫微斗數</div>
       <div class="center-name">${esc(data.name)}・${esc(data.gender)}</div>
-      ${fourPillarsHTML(astrolabe.chineseDate)}
-      <div class="center-meta">
-        國曆 ${esc(astrolabe.solarDate)}<br>
-        農曆 ${esc(astrolabe.lunarDate)}<br>
-        ${esc(astrolabe.time)} ${esc(astrolabe.timeRange)}<br>
-        命主 ${esc(astrolabe.soul)}　身主 ${esc(astrolabe.body)}<br>
-        ${esc(astrolabe.fiveElementsClass)}<br>
-        派別 ${esc($('algorithm').selectedOptions?.[0]?.textContent || '')}<br>
-        分類 ${esc(data.caseCategory || '案例')}${data.relationshipSubtype ? '・'+esc(data.relationshipSubtype) : ''}
+      <div class="center-info-grid">
+        <div><b>國曆</b><span>${esc(astrolabe.solarDate)}</span></div>
+        <div><b>農曆</b><span>${esc(astrolabe.lunarDate)}</span></div>
+        <div><b>時間</b><span>${esc(astrolabe.time)} ${esc(astrolabe.timeRange)}</span></div>
+        <div><b>局數</b><span>${esc(astrolabe.fiveElementsClass)}</span></div>
+        <div><b>命主</b><span>${esc(astrolabe.soul)}</span></div>
+        <div><b>身主</b><span>${esc(astrolabe.body)}</span></div>
+        <div><b>派別</b><span>${esc($('algorithm').selectedOptions?.[0]?.textContent || '')}</span></div>
+        <div><b>分類</b><span>${esc(data.caseCategory || '案例')}${data.relationshipSubtype ? '・'+esc(data.relationshipSubtype) : ''}</span></div>
       </div>
-      ${scopeData ? `<div class="center-four">
-        <span class="center-chip">${esc(scopeLabel())} ${esc(scopeData.heavenlyStem)}${esc(scopeData.earthlyBranch)}</span>
+      ${fourPillarsHTML(astrolabe.chineseDate)}
+      ${scopeData ? `<div class="center-four center-four-lite">
+        <span class="center-chip primary">${esc(scopeLabel())} ${esc(scopeData.heavenlyStem)}${esc(scopeData.earthlyBranch)}</span>
         ${scopeData.isMinor && scopeData.nominalAge ? `<span class="center-chip">虛歲 ${esc(scopeData.nominalAge)}</span>` : ''}
         ${four.map((s,i)=>`<span class="center-chip ${mutagenClass(MUTAGEN_NAMES[i])}">${MUTAGEN_NAMES[i]}：${esc(s)}</span>`).join('')}
-        ${currentHoroscope?.yearly ? `<span class="center-chip annual-center">太歲 ${esc(currentHoroscope.yearly.heavenlyStem)}${esc(currentHoroscope.yearly.earthlyBranch)}</span>` : ''}
-      </div>` : ''}
+      </div>` : '<div class="center-four center-four-lite"><span class="center-chip primary">本命</span></div>'}
     </div>`;
   }
 
@@ -1368,6 +1542,7 @@ footer{
 
     renderMutagenPanel(scopeData);
     renderFlyPanel();
+    renderScopeOverview(scopeData);
     requestAnimationFrame(drawFlyLines);
   }
 
@@ -1615,15 +1790,72 @@ footer{
     autosaveTimer = setTimeout(() => saveCurrent(false), 800);
   }
 
+  function casePillarsFromRecord(c) {
+    const raw = String(c?.chartJSON?.chineseDate || c?.chineseDate || '').trim();
+    let pillars = raw.split(/\s+/).filter(Boolean);
+    if (pillars.length < 4) {
+      pillars = raw.replace(/[\s｜|、，,\/\-]/g,'').match(/[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]/g) || [];
+    }
+    return pillars.slice(0,4);
+  }
+
+  function renderCaseRecordList(list) {
+    const box = $('caseRecordList');
+    if (!box) return;
+    const q = ($('caseSearch')?.value || '').trim().toLowerCase();
+    const active = document.querySelector('#caseTabs .case-tab.active')?.dataset.category || '全部';
+
+    const rows = list
+      .filter(c => active === '全部' || (c.caseCategory || '案例') === active)
+      .filter(c => {
+        if (!q) return true;
+        return [c.name,c.gender,c.solarDate,c.caseCategory,c.relationshipSubtype]
+          .filter(Boolean).join(' ').toLowerCase().includes(q);
+      })
+      .sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''));
+
+    if (!rows.length) {
+      box.innerHTML = '<div class="case-empty">沒有符合條件的案例</div>';
+      return;
+    }
+
+    box.innerHTML = rows.map(c => {
+      const pillars = casePillarsFromRecord(c);
+      const cat = c.caseCategory || '案例';
+      const tone = cat === '家人' ? 'family' : cat === '朋友' ? 'friend' : cat === '感情' ? 'love' : 'case';
+      return `<button class="case-record-row" data-case-id="${c.id}">
+        <span class="case-main">
+          <span class="case-name">${esc(c.name || '未命名')}</span>
+          <span class="case-gender">${esc(c.gender || '')}</span>
+          <span class="case-date">陽曆 ${esc(c.solarDate || '—')} ${esc(c.birthTime || '')}</span>
+          <span class="case-subtag category-${tone}">${esc(cat)}${c.relationshipSubtype ? '・'+esc(c.relationshipSubtype) : ''}</span>
+        </span>
+        <span class="case-pillars" aria-label="四柱八字">
+          ${pillars.length === 4 ? pillars.map(p=>`<span><b>${esc(p[0]||'')}</b><i>${esc(p[1]||'')}</i></span>`).join('') : '<em>四柱</em>'}
+        </span>
+      </button>`;
+    }).join('');
+
+    box.querySelectorAll('.case-record-row').forEach(row => {
+      row.onclick = async () => {
+        box.querySelectorAll('.case-record-row').forEach(x=>x.classList.remove('selected'));
+        row.classList.add('selected');
+        $('caseSelect').value = row.dataset.caseId;
+        await loadCaseById(row.dataset.caseId);
+      };
+    });
+  }
+
   async function refreshCases() {
     if (!db) return;
     const list = await allCases();
-    const html = '<option value="">— 尚未選擇 —</option>' +
+    const optionHTML = '<option value="">— 尚未選擇 —</option>' +
       list.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))
         .map(c => `<option value="${c.id}">【${esc(c.caseCategory || '案例')}${c.relationshipSubtype ? '／'+esc(c.relationshipSubtype) : ''}】${esc(c.name)}・${esc(c.gender || '')}・${esc(c.solarDate || '')}</option>`).join('');
-    $('caseSelect').innerHTML = html;
-    $('dualLeft').innerHTML = html;
-    $('dualRight').innerHTML = html;
+    $('caseSelect').innerHTML = optionHTML;
+    $('dualLeft').innerHTML = optionHTML;
+    $('dualRight').innerHTML = optionHTML;
+    renderCaseRecordList(list);
   }
 
   async function loadCaseById(id) {
@@ -1787,7 +2019,7 @@ footer{
     const list = await allCases();
     const payload = {
       app:'小梁專用紫微斗數排盤研究系統',
-      version:'0.7.2',
+      version:'0.7.4',
       exportedAt:new Date().toISOString(),
       cases:list
     };
@@ -1980,6 +2212,22 @@ footer{
     $('caseCategory').onchange = () => { updateCaseCategoryUI(); queueAutosave(); };
     $('relationshipSubtype').onchange = () => { updateCaseCategoryUI(); queueAutosave(); };
     updateCaseCategoryUI();
+
+    if ($('caseSearch')) $('caseSearch').oninput = async () => renderCaseRecordList(await allCases());
+    document.querySelectorAll('#caseTabs .case-tab').forEach(tab => {
+      tab.onclick = async () => {
+        document.querySelectorAll('#caseTabs .case-tab').forEach(x => x.classList.remove('active'));
+        tab.classList.add('active');
+        renderCaseRecordList(await allCases());
+      };
+    });
+    if ($('btnNewCase')) $('btnNewCase').onclick = () => {
+      currentRecordId = null;
+      $('caseSelect').value = '';
+      $('name').focus();
+      $('saveState').textContent = '新增案例：請輸入命主資料後儲存';
+    };
+    if ($('btnCaseFilter')) $('btnCaseFilter').onclick = () => $('caseSearch')?.focus();
 
     ['scope','horoscopeDate','showAdjective','showSuiqian','showJiangqian','showBoshi','showChangsheng','showTaiSui','showYearlyLuYangTuo']
       .forEach(id => {
