@@ -702,6 +702,343 @@ footer{
   .case-bottom-actions{padding:9px 12px 12px}
 }
 
+
+/* ===== v0.7.5 chart typography system =====
+   目標：電腦版穩重、清楚、有層級，不用大黑粗字壓迫閱讀。 */
+.chart-card{
+  background:#fff!important;
+  padding:10px!important;
+}
+.chart-card>.section-head{
+  padding:5px 7px 8px!important;
+  align-items:center!important;
+}
+.chart-card>.section-head h2{
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  font-size:16px!important;
+  line-height:1.3!important;
+  font-weight:700!important;
+  letter-spacing:.02em!important;
+  color:#211f1c!important;
+}
+.mutagen-legend{
+  font-size:9px!important;
+  font-weight:500!important;
+  gap:6px!important;
+}
+
+/* 命盤整體比例：桌機 4x4 每格約 150px，中宮自然形成 2x2。 */
+.chart-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  grid-template-rows:repeat(4,150px)!important;
+  min-height:600px!important;
+  background:#b8b1a7!important;
+  border-color:#b8b1a7!important;
+}
+.palace{
+  height:150px!important;
+  min-height:150px!important;
+  padding:7px 7px 6px!important;
+  background:#fff!important;
+  color:#24211e!important;
+  border-width:1px!important;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  overflow:hidden!important;
+}
+.palace-head{
+  margin-bottom:4px!important;
+  gap:4px!important;
+}
+.palace-name{
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  font-size:14px!important;
+  line-height:1.15!important;
+  font-weight:700!important;
+  letter-spacing:.01em!important;
+  color:#b34035!important;
+}
+.stem-branch{
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  font-size:10px!important;
+  line-height:1.2!important;
+  font-weight:500!important;
+  color:#5d5852!important;
+}
+.body-badge,.origin-badge{
+  font-size:7px!important;
+  font-weight:600!important;
+  padding:1px 3px!important;
+}
+.scope-name{
+  margin:0 0 3px!important;
+  font-size:9px!important;
+  line-height:1.25!important;
+  font-weight:600!important;
+  color:#9a562f!important;
+  border:0!important;
+}
+
+/* 星曜：主星最明顯，但不用超粗；其餘維持閱讀層級。 */
+.stars{
+  gap:3px 5px!important;
+  min-height:32px!important;
+  align-items:flex-start!important;
+}
+.star{
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  font-size:10px!important;
+  line-height:1.12!important;
+  font-weight:500!important;
+  color:#26231f!important;
+  max-height:70px!important;
+}
+.star.major{
+  font-size:15px!important;
+  line-height:1.08!important;
+  font-weight:700!important;
+  color:#181715!important;
+}
+.star.soft{color:#277157!important}
+.star.tough{color:#ad4a37!important}
+.brightness{
+  font-size:7px!important;
+  line-height:1.1!important;
+  font-weight:400!important;
+  color:#817a72!important;
+}
+.mutagen{
+  width:15px!important;
+  height:15px!important;
+  font-size:8px!important;
+  font-weight:700!important;
+}
+.group-label{
+  margin:3px 0 1px!important;
+  font-size:8px!important;
+  line-height:1.2!important;
+  font-weight:500!important;
+  color:#aaa39b!important;
+}
+.adjective-stars{
+  font-size:9px!important;
+  line-height:1.3!important;
+  font-weight:400!important;
+  color:#6f6962!important;
+  max-height:25px!important;
+}
+.gods{
+  gap:2px!important;
+  margin-top:3px!important;
+}
+.god{
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  font-size:8px!important;
+  line-height:1.2!important;
+  font-weight:500!important;
+  padding:2px 4px!important;
+  background:#fbfaf8!important;
+}
+.stage{
+  margin-top:3px!important;
+  font-size:8px!important;
+  line-height:1.2!important;
+  font-weight:400!important;
+  color:#7b756e!important;
+}
+.scope-stars{
+  margin-top:3px!important;
+  padding-top:3px!important;
+}
+.scope-star{
+  font-size:8px!important;
+  line-height:1.2!important;
+  font-weight:500!important;
+}
+
+/* 中宮：資訊感像排盤軟體，但避免海報式大標。 */
+.center.center-wmx{
+  height:301px!important;
+  min-height:301px!important;
+  padding:12px 14px!important;
+  background:#f8f4ea!important;
+  border:0!important;
+}
+.center-brand{
+  margin-bottom:2px!important;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  font-size:11px!important;
+  line-height:1.25!important;
+  font-weight:600!important;
+  letter-spacing:.08em!important;
+  color:#756a5e!important;
+}
+.center-title{
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  font-size:21px!important;
+  line-height:1.25!important;
+  font-weight:700!important;
+  letter-spacing:.03em!important;
+  color:#1d1b18!important;
+}
+.center-name{
+  margin:4px 0 7px!important;
+  font-size:14px!important;
+  line-height:1.25!important;
+  font-weight:700!important;
+  color:#171614!important;
+}
+.center-info-grid{
+  width:min(100%,500px)!important;
+  gap:3px 12px!important;
+  margin:0 auto 7px!important;
+}
+.center-info-grid div{
+  gap:5px!important;
+  font-size:9px!important;
+  line-height:1.35!important;
+  font-weight:400!important;
+  color:#4f4943!important;
+}
+.center-info-grid b{
+  min-width:28px!important;
+  font-size:8px!important;
+  font-weight:600!important;
+  color:#83796d!important;
+}
+.center-info-grid span{font-weight:500!important}
+.center-bazi-wrap{
+  width:min(100%,430px)!important;
+  margin:4px auto 7px!important;
+  border-color:#d6ccbf!important;
+  background:rgba(255,255,255,.76)!important;
+}
+.center-bazi-title{
+  padding:3px 6px!important;
+  font-size:8px!important;
+  line-height:1.2!important;
+  font-weight:600!important;
+  letter-spacing:.12em!important;
+  color:#746b61!important;
+}
+.center-bazi-grid .bazi-col{padding:4px 2px!important}
+.bazi-label{
+  font-size:7px!important;
+  line-height:1.15!important;
+  font-weight:400!important;
+  color:#958b80!important;
+}
+.bazi-stem,.bazi-branch{
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif!important;
+  font-size:18px!important;
+  line-height:1.08!important;
+  font-weight:700!important;
+}
+.bazi-stem{color:#24211e!important}
+.bazi-branch{color:#a84536!important}
+.center-four.center-four-lite{
+  margin-top:3px!important;
+  gap:4px!important;
+}
+.center-chip{
+  font-size:8px!important;
+  line-height:1.2!important;
+  font-weight:600!important;
+  padding:3px 5px!important;
+}
+
+/* 運限摘要與案例：配合命盤視覺，不搶主畫面。 */
+.scope-overview{
+  margin-top:7px!important;
+  padding:7px 9px!important;
+  font-size:10px!important;
+  line-height:1.5!important;
+  font-weight:400!important;
+}
+.scope-tag{
+  padding:3px 6px!important;
+  font-size:9px!important;
+  line-height:1.2!important;
+  font-weight:600!important;
+}
+.case-records-head h3{
+  font-size:17px!important;
+  font-weight:700!important;
+}
+.case-name{font-size:16px!important;font-weight:700!important}
+.case-gender,.case-date{font-weight:400!important}
+.case-pillars b,.case-pillars i{
+  font-size:16px!important;
+  font-weight:600!important;
+}
+
+/* 平板 */
+@media (min-width:701px) and (max-width:980px){
+  .chart-grid{
+    grid-template-rows:repeat(4,140px)!important;
+    min-height:560px!important;
+  }
+  .palace{height:140px!important;min-height:140px!important}
+  .center.center-wmx{height:281px!important;min-height:281px!important}
+  .palace-name{font-size:13px!important}
+  .star.major{font-size:14px!important}
+  .star{font-size:9px!important}
+}
+
+/* 手機：保留可讀性，但不把桌機的尺寸直接硬縮。 */
+@media(max-width:700px){
+  .chart-card{padding:5px!important}
+  .chart-card>.section-head h2{font-size:15px!important}
+  .chart-grid{
+    grid-template-rows:repeat(4,118px)!important;
+    min-height:472px!important;
+  }
+  .palace{
+    height:118px!important;
+    min-height:118px!important;
+    padding:4px 3px 3px!important;
+  }
+  .palace-name{font-size:11px!important;font-weight:700!important}
+  .stem-branch{font-size:8px!important}
+  .scope-name{font-size:7px!important}
+  .stars{gap:2px!important;min-height:26px!important}
+  .star{font-size:7.5px!important;font-weight:500!important;max-height:58px!important}
+  .star.major{font-size:10.5px!important;font-weight:700!important}
+  .brightness{font-size:6px!important}
+  .mutagen{width:13px!important;height:13px!important;font-size:7px!important}
+  .group-label{font-size:6px!important;margin:2px 0 1px!important}
+  .adjective-stars{font-size:6.5px!important;max-height:19px!important}
+  .god,.stage,.scope-star{font-size:6.5px!important}
+  .god{padding:1px 3px!important}
+  .center.center-wmx{
+    height:237px!important;
+    min-height:237px!important;
+    padding:6px 4px!important;
+  }
+  .center-brand{font-size:7px!important}
+  .center-title{font-size:15px!important}
+  .center-name{font-size:10px!important;margin:2px 0 4px!important}
+  .center-info-grid{gap:2px 5px!important;margin-bottom:4px!important}
+  .center-info-grid div{font-size:6.5px!important}
+  .center-info-grid b{font-size:6px!important;min-width:20px!important}
+  .center-bazi-wrap{margin:3px auto 4px!important}
+  .center-bazi-title{font-size:6px!important;padding:2px!important}
+  .center-bazi-grid .bazi-col{padding:2px 1px!important}
+  .bazi-label{font-size:5px!important}
+  .bazi-stem,.bazi-branch{font-size:11px!important;font-weight:700!important}
+  .center-chip{font-size:6.5px!important;padding:2px 3px!important}
+}
+
+@media(max-width:390px){
+  .chart-grid{
+    grid-template-rows:repeat(4,110px)!important;
+    min-height:440px!important;
+  }
+  .palace{height:110px!important;min-height:110px!important}
+  .center.center-wmx{height:221px!important;min-height:221px!important}
+  .star.major{font-size:10px!important}
+  .star{font-size:7px!important}
+}
+
 </style>
 </head>
 <body>
@@ -2019,7 +2356,7 @@ footer{
     const list = await allCases();
     const payload = {
       app:'小梁專用紫微斗數排盤研究系統',
-      version:'0.7.4',
+      version:'0.7.5',
       exportedAt:new Date().toISOString(),
       cases:list
     };
